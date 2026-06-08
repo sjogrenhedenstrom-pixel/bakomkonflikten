@@ -1,1666 +1,1209 @@
-<!DOCTY id="sira"PE html>
+<!DOCTYPE html>
 <html lang="sv">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bakom konflikten — Kunskapsportal</title>
+<title>Bakom konflikten — Se mönstret.</title>
+<meta name="description" content="En öppen kunskapsportal om psykologisk kontroll, strukturerade samtal och barnets rättigheter.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
- :root {
+/* === RESET & BASE === */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', Arial, sans-serif; background: #FAF8F5; color: #5A4038; overflow-x: hidden; }
+img { max-width: 100%; height: auto; }
+a { color: inherit; }
+
+/* === VARIABLES === */
+:root {
   --dark: #1E1410;
   --mid: #5A4038;
-  --detail: #C4B4A8;
-  --warm-white: #FAF8F5;
+  --light: #AB9084;
   --peach: #E8A898;
-  --mid-accent: #AB9084;
+  --peach-light: #F5DDD5;
   --green: #4A6741;
   --blue: #6B8CAE;
   --rose: #E68CA5;
-  --light-peach: #F5DDD5;
-  --light-green: #A8C5A0;
-  --bg-soft: #F0EBE7;
- }
- * { margin:0; padding:0; box-sizing:border-box; }
- html { scroll-behavior:smooth; }
- body { font-family:'DM Sans',sans-serif; background:var(--warm-white); color:var(--mid); line-height:1.7; }
+  --detail: #C4B4A8;
+  --warm: #FAF8F5;
+}
 
- /* NAV */
- nav {
-  position:fixed; top:0; left:0; right:0; z-index:100;
-  background:var(--warm-white); border-bottom:5px solid var(--dark);
-  padding:16px 60px; display:flex; align-items:center; justify-content:space-between;
- }
- .nav-logo { font-family:'Playfair Display',serif; font-size:20px; font-weight:700; color:var(--dark); text-decoration:none; }
- .nav-links { display:flex; gap:28px; list-style:none; }
- .nav-links a { text-decoration:none; color:var(--mid-accent); font-size:12px; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; transition:color 0.2s; }
- .nav-links a:hover { color:var(--dark); }
+/* === NAV === */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  background: var(--warm); border-bottom: 1px solid var(--detail);
+  padding: 16px 40px; display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo { font-family: 'Playfair Display', Georgia, serif; font-size: 18px; font-weight: 700; color: var(--dark); text-decoration: none; white-space: nowrap; }
+.nav-links { display: flex; gap: 24px; list-style: none; flex-wrap: wrap; }
+.nav-links a { text-decoration: none; color: var(--light); font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; transition: color 0.2s; }
+.nav-links a:hover { color: var(--dark); }
 
- /* HERO */
- .hero { padding:140px 60px 80px; max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
- .hero-tag { font-size:12px; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--mid-accent); margin-bottom:20px; }
- .hero h1 { font-family:'Playfair Display',serif; font-size:62px; font-weight:700; color:var(--dark); line-height:1.08; margin-bottom:20px; }
- .hero h1 em { font-style:italic; color:var(--rose); }
- .hero p { font-size:17px; color:var(--mid); line-height:1.7; margin-bottom:36px; font-weight:300; }
- .hero-btns { display:flex; gap:16px; flex-wrap:wrap; }
+/* === TAB NAV === */
+#tab-nav {
+  position: sticky; top: 57px; z-index: 150; background: var(--warm);
+  border-bottom: 2px solid var(--detail); box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  overflow-x: auto; -webkit-overflow-scrolling: touch;
+}
+#tab-nav > div { display: flex; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.tab-btn {
+  padding: 18px 28px; font-size: 14px; font-weight: 600; color: var(--light);
+  background: transparent; border: none; border-bottom: 3px solid transparent;
+  cursor: pointer; white-space: nowrap; transition: all 0.2s; font-family: 'DM Sans', sans-serif;
+  letter-spacing: 0.02em;
+}
+.tab-btn.active { color: var(--dark); border-bottom-color: var(--dark); }
 
- /* BUTTONS */
- .btn { display:inline-block; padding:15px 32px; font-family:'DM Sans',sans-serif; font-size:13px; font-weight:500; letter-spacing:0.08em; text-decoration:none; border:none; cursor:pointer; transition:all 0.2s; }
- .btn-dark { background:var(--dark); color:var(--warm-white); }
- .btn-dark:hover { background:var(--mid); }
- .btn-outline { background:transparent; color:var(--dark); border:2px solid var(--dark); }
- .btn-outline:hover { background:var(--dark); color:var(--warm-white); }
- .btn-peach { background:var(--peach); color:var(--dark); }
- .btn-peach:hover { background:var(--light-peach); }
- .btn-green { background:var(--green); color:var(--warm-white); }
- .btn-green:hover { background:#3a5333; }
+/* === SPACER === */
+.nav-spacer { height: 110px; }
 
- /* STAT CARDS HERO */
- .hero-stats { display:flex; flex-direction:column; gap:10px; }
- .stat-card { background:var(--warm-white); border:1px solid var(--detail); padding:22px 28px; display:flex; align-items:center; gap:20px; }
- .stat-card.dark-card { background:var(--dark); border-color:var(--dark); }
- .stat-num { font-family:'Playfair Display',serif; font-size:40px; font-weight:700; color:var(--dark); line-height:1; min-width:90px; }
- .dark-card .stat-num { color:var(--warm-white); }
- .stat-label { font-size:13px; color:var(--mid); line-height:1.5; }
- .dark-card .stat-label { color:var(--detail); }
- .stat-src { font-size:11px; color:var(--detail); margin-top:3px; font-style:italic; }
+/* === BUTTONS === */
+.btn {
+  display: inline-block; padding: 14px 28px; font-family: 'DM Sans', sans-serif;
+  font-size: 13px; font-weight: 500; letter-spacing: 0.06em; text-decoration: none;
+  transition: all 0.2s; cursor: pointer; border: none;
+}
+.btn-dark { background: var(--dark); color: var(--warm); }
+.btn-dark:hover { background: var(--mid); }
+.btn-outline { background: transparent; color: var(--dark); border: 1px solid var(--dark); }
+.btn-outline:hover { background: var(--dark); color: var(--warm); }
+.btn-peach { background: var(--peach); color: var(--dark); }
+.btn-peach:hover { background: #d4998a; }
 
- /* COUNTERS STRIP */
- .counters-strip { background:var(--dark); padding:60px; }
- .counters-inner { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:repeat(4,1fr); gap:2px; background:rgba(255,255,255,0.1); }
- .counter-block { background:var(--dark); padding:40px 32px; text-align:center; }
- .counter-number { font-family:'Playfair Display',serif; font-size:58px; font-weight:700; color:var(--peach); line-height:1; margin-bottom:10px; }
- .counter-label { font-size:13px; color:var(--detail); letter-spacing:0.08em; text-transform:uppercase; }
+/* === HERO PROFESSIONAL === */
+.hero { padding: 80px 60px; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.hero-tag { font-size: 11px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--light); margin-bottom: 20px; }
+.hero h1 { font-family: 'Playfair Display', serif; font-size: 58px; font-weight: 700; color: var(--dark); line-height: 1.08; margin-bottom: 20px; }
+.hero h1 em { font-style: italic; color: var(--rose); }
+.hero p { font-size: 16px; color: var(--mid); line-height: 1.7; margin-bottom: 32px; font-weight: 300; }
+.hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+.hero-stats { display: flex; flex-direction: column; gap: 16px; }
+.stat-card { background: var(--dark); padding: 24px 28px; display: flex; gap: 20px; align-items: flex-start; }
+.stat-num { font-family: 'Playfair Display', serif; font-size: 42px; font-weight: 700; color: var(--peach); line-height: 1; min-width: 80px; }
+.stat-text { font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.6; }
+.stat-src { font-size: 11px; color: var(--light); margin-top: 4px; }
 
- /* INSTAGRAM SECTION */
- .instagram-section { padding:100px 60px; background:var(--bg-soft); }
- .instagram-inner { max-width:1200px; margin:0 auto; }
- .ig-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:40px; }
- .ig-handle { display:flex; align-items:center; gap:16px; }
- .ig-avatar { width:56px; height:56px; border-radius:50%; background:var(--peach); display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:22px; font-weight:700; color:var(--dark); }
- .ig-name { font-family:'Playfair Display',serif; font-size:22px; font-weight:700; color:var(--dark); }
- .ig-sub { font-size:13px; color:var(--mid-accent); }
- .ig-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:3px; margin-bottom:32px; }
- .ig-post { aspect-ratio:1; overflow:hidden; position:relative; cursor:pointer; }
- .ig-post-bg { width:100%; height:100%; display:flex; align-items:center; justify-content:center; padding:24px; transition:transform 0.3s; }
- .ig-post:hover .ig-post-bg { transform:scale(1.03); }
- .ig-post-text { font-family:'Playfair Display',serif; font-size:18px; font-weight:700; color:var(--dark); line-height:1.3; text-align:center; }
- .ig-post-overlay { position:absolute; inset:0; background:rgba(30,20,16,0); transition:background 0.3s; display:flex; align-items:center; justify-content:center; }
- .ig-post:hover .ig-post-overlay { background:rgba(30,20,16,0.4); }
- .ig-post-overlay span { color:white; font-size:13px; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; opacity:0; transition:opacity 0.3s; }
- .ig-post:hover .ig-post-overlay span { opacity:1; }
- .ig-cta { text-align:center; padding:32px; background:var(--warm-white); border:1px solid var(--detail); }
- .ig-cta p { font-size:16px; color:var(--mid); margin-bottom:20px; }
+/* === COUNTERS === */
+.counters { background: var(--dark); padding: 60px; }
+.counters-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; max-width: 1200px; margin: 0 auto; }
+.counter-item {
+  background: #2a1f1a; padding: 40px 28px; text-decoration: none;
+  transition: background 0.2s; display: block;
+}
+.counter-item:hover { background: #352820; }
+.counter-num { font-family: 'Playfair Display', serif; font-size: 48px; font-weight: 700; color: var(--peach); line-height: 1; margin-bottom: 12px; }
+.counter-lbl { font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.6; margin-bottom: 8px; }
+.counter-src { font-size: 11px; color: var(--light); }
 
- /* DIVIDER */
- hr.div { border:none; border-top:1px solid var(--detail); margin:0; }
+/* === SECTIONS === */
+section { padding: 80px 60px; max-width: 1200px; margin: 0 auto; }
+.section-tag { font-size: 11px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--light); margin-bottom: 16px; }
+.section-title { font-family: 'Playfair Display', serif; font-size: 42px; font-weight: 700; color: var(--dark); margin-bottom: 16px; line-height: 1.2; }
+.section-intro { font-size: 16px; color: var(--mid); line-height: 1.7; max-width: 680px; margin-bottom: 48px; font-weight: 300; }
 
- /* SECTIONS */
- section { padding:100px 60px; max-width:1200px; margin:0 auto; }
- .section-tag { font-size:12px; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--mid-accent); margin-bottom:14px; }
- .section-title { font-family:'Playfair Display',serif; font-size:40px; font-weight:700; color:var(--dark); line-height:1.15; margin-bottom:14px; }
- .section-intro { font-size:16px; color:var(--mid); font-weight:300; max-width:680px; margin-bottom:50px; }
+/* === BEGREPP/BRISTER GRID === */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--detail); }
+.brist-card { background: var(--warm); padding: 36px 32px; border-top: 4px solid; }
+.brist-nr { font-size: 11px; font-weight: 700; letter-spacing: 0.15em; color: var(--light); margin-bottom: 12px; }
+.brist-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--dark); margin-bottom: 12px; }
+.brist-body { font-size: 14px; color: var(--mid); line-height: 1.8; font-weight: 300; }
 
- /* BEGREPP */
- .begrepp-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:2px; background:var(--detail); }
- .begrepp-card { background:var(--warm-white); padding:36px 40px; transition:background 0.2s; }
- .begrepp-card:hover { background:var(--bg-soft); }
- .begrepp-letter { font-family:'Playfair Display',serif; font-size:46px; font-weight:700; line-height:1; margin-bottom:10px; }
- .begrepp-title { font-family:'Playfair Display',serif; font-size:21px; font-weight:700; color:var(--dark); margin-bottom:10px; }
- .begrepp-def { font-size:14px; color:var(--mid); line-height:1.65; font-weight:300; }
- .begrepp-source { font-size:11px; color:var(--detail); margin-top:14px; font-style:italic; }
+/* === CONCLUSION BLOCK === */
+.conclusion { background: var(--dark); padding: 48px; margin-top: 48px; }
+.conclusion-label { font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--light); margin-bottom: 16px; }
+.conclusion-quote { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--warm); line-height: 1.6; margin-bottom: 24px; font-style: italic; }
+.conclusion-body { font-size: 14px; color: #C4B4A8; line-height: 1.9; margin-bottom: 16px; }
+.conclusion-highlight { font-size: 15px; color: var(--peach); font-weight: 500; margin-bottom: 8px; }
+.conclusion-source { font-size: 11px; color: #5A4038; margin-bottom: 16px; }
 
- /* STATISTIK */
- .stats-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:var(--detail); }
- .stat-block { background:var(--warm-white); padding:40px; }
- .stat-block.bg-green { background:var(--green); }
- .stat-block.bg-peach { background:var(--peach); }
- .stat-block.bg-dark { background:var(--dark); }
- .stat-big { font-family:'Playfair Display',serif; font-size:52px; font-weight:700; color:var(--dark); line-height:1; margin-bottom:10px; }
- .bg-green .stat-big, .bg-dark .stat-big { color:var(--warm-white); }
- .stat-desc { font-size:15px; color:var(--mid); line-height:1.5; margin-bottom:6px; }
- .bg-green .stat-desc, .bg-dark .stat-desc { color:var(--light-green); }
- .stat-cite { font-size:11px; color:var(--mid-accent); font-style:italic; }
- .bg-green .stat-cite, .bg-dark .stat-cite { color:var(--detail); }
+/* === SIRA === */
+.sira-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2px; background: var(--detail); margin-top: 40px; margin-bottom: 40px; }
+.sira-card { padding: 32px 24px; }
+.sira-letter { font-family: 'Playfair Display', serif; font-size: 48px; font-weight: 700; color: var(--warm); line-height: 1; margin-bottom: 8px; }
+.sira-word { font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 12px; }
+.sira-desc { font-size: 13px; color: rgba(255,255,255,0.8); line-height: 1.6; }
+.sira-download { background: var(--peach-light); padding: 36px; display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
+.sira-download-title { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--dark); margin-bottom: 6px; }
+.sira-download-sub { font-size: 14px; color: var(--light); }
 
- /* SIRA */
- .sira-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:2px; background:var(--detail); margin-bottom:24px; }
- .sira-card { padding:32px 22px; background:var(--warm-white); }
- .sira-letter { font-family:'Playfair Display',serif; font-size:48px; font-weight:700; line-height:1; margin-bottom:6px; }
- .sira-word { font-size:11px; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:var(--mid-accent); margin-bottom:14px; }
- .sira-desc { font-size:13px; color:var(--mid); line-height:1.6; font-weight:300; }
- .sira-download { background:var(--bg-soft); padding:32px 40px; display:flex; align-items:center; justify-content:space-between; }
+/* === STATISTIK === */
+.stat-list { display: flex; flex-direction: column; gap: 2px; background: var(--detail); margin-top: 40px; }
+.stat-row { background: var(--warm); padding: 32px; display: grid; grid-template-columns: 120px 1fr auto; gap: 32px; align-items: center; }
+.stat-big { font-family: 'Playfair Display', serif; font-size: 48px; font-weight: 700; color: var(--dark); line-height: 1; }
+.stat-info strong { font-size: 15px; color: var(--dark); display: block; margin-bottom: 6px; }
+.stat-info p { font-size: 14px; color: var(--mid); line-height: 1.6; font-weight: 300; }
+.stat-source { font-size: 11px; color: var(--light); font-style: italic; white-space: nowrap; }
 
- /* POLLS */
- .polls-section { background:var(--bg-soft); padding:100px 60px; }
- .polls-inner { max-width:1200px; margin:0 auto; }
- .polls-grid { display:grid; grid-template-columns:1fr 1fr; gap:40px; margin-top:40px; }
- .poll-card { background:var(--warm-white); border:1px solid var(--detail); padding:36px; }
- .poll-question { font-family:'Playfair Display',serif; font-size:20px; color:var(--dark); margin-bottom:24px; line-height:1.3; }
- .poll-option { margin-bottom:12px; }
- .poll-option label { display:flex; align-items:center; gap:12px; cursor:pointer; padding:12px 16px; border:1px solid var(--detail); transition:all 0.2s; font-size:14px; color:var(--mid); }
- .poll-option label:hover { background:var(--bg-soft); border-color:var(--mid-accent); }
- .poll-option input[type=radio] { accent-color:var(--green); width:16px; height:16px; }
- .poll-bar-wrap { margin-top:6px; }
- .poll-bar { height:6px; background:var(--detail); border-radius:3px; overflow:hidden; margin:4px 0; }
- .poll-fill { height:100%; background:var(--green); border-radius:3px; transition:width 0.8s ease; }
- .poll-pct { font-size:11px; color:var(--mid-accent); }
- .poll-total { font-size:12px; color:var(--detail); margin-top:16px; font-style:italic; }
- .poll-voted label { cursor:default; }
+/* === POLLS === */
+.polls-section { background: var(--dark); padding: 80px 60px; }
+.polls-inner { max-width: 1200px; margin: 0 auto; }
+.polls-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: rgba(255,255,255,0.1); margin-top: 40px; }
+.poll-card { background: #2a1f1a; padding: 32px; }
+.poll-q { font-size: 15px; color: var(--warm); margin-bottom: 20px; line-height: 1.6; }
+.poll-opts { display: flex; flex-direction: column; gap: 8px; }
+.poll-opt { background: transparent; border: 1px solid rgba(255,255,255,0.2); padding: 12px 16px; color: rgba(255,255,255,0.7); font-size: 13px; cursor: pointer; text-align: left; font-family: 'DM Sans', sans-serif; transition: all 0.15s; }
+.poll-opt:hover { border-color: var(--peach); color: var(--warm); }
+.poll-opt.voted { border-color: var(--peach); background: rgba(232,168,152,0.1); color: var(--peach); }
+.poll-bar { height: 4px; background: rgba(255,255,255,0.1); border-radius: 2px; margin-top: 8px; }
+.poll-fill { height: 4px; background: var(--peach); border-radius: 2px; transition: width 0.8s ease; }
+.poll-count { font-size: 11px; color: var(--light); margin-top: 4px; }
 
- /* WISH BOX */
- .wish-section { padding:100px 60px; max-width:1200px; margin:0 auto; }
- .wish-grid { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start; margin-top:40px; }
- .wish-form { background:var(--bg-soft); padding:40px; }
- .wish-form h3 { font-family:'Playfair Display',serif; font-size:24px; color:var(--dark); margin-bottom:8px; }
- .wish-form p { font-size:14px; color:var(--mid-accent); margin-bottom:24px; }
- .wish-input { width:100%; padding:14px 16px; border:1px solid var(--detail); background:var(--warm-white); font-family:'DM Sans',sans-serif; font-size:14px; color:var(--dark); outline:none; margin-bottom:12px; transition:border-color 0.2s; }
- .wish-input:focus { border-color:var(--green); }
- .wish-textarea { width:100%; padding:14px 16px; border:1px solid var(--detail); background:var(--warm-white); font-family:'DM Sans',sans-serif; font-size:14px; color:var(--dark); outline:none; min-height:100px; resize:vertical; margin-bottom:16px; transition:border-color 0.2s; }
- .wish-textarea:focus { border-color:var(--green); }
- .wish-list { display:flex; flex-direction:column; gap:12px; }
- .wish-item { background:var(--warm-white); border:1px solid var(--detail); padding:20px 24px; }
- .wish-item-title { font-size:15px; font-weight:500; color:var(--dark); margin-bottom:4px; }
- .wish-item-votes { display:flex; align-items:center; gap:10px; margin-top:10px; }
- .wish-vote-btn { background:none; border:1px solid var(--detail); padding:4px 12px; font-size:12px; color:var(--mid-accent); cursor:pointer; transition:all 0.2s; }
- .wish-vote-btn:hover, .wish-vote-btn.voted { background:var(--green); color:var(--warm-white); border-color:var(--green); }
- .wish-votes-count { font-size:12px; color:var(--mid-accent); }
+/* === WISH === */
+.wish-section { padding: 80px 60px; }
+.wish-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+.wish-form input, .wish-form textarea, .wish-form select {
+  width: 100%; padding: 13px 15px; border: 1px solid var(--detail);
+  background: var(--warm); font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--dark);
+  outline: none; margin-bottom: 12px;
+}
+.wish-form textarea { min-height: 100px; resize: vertical; }
 
- /* CITAT */
- .citat-section { background:var(--dark); padding:100px 60px; }
- .citat-inner { max-width:1200px; margin:0 auto; }
- .citat-section .section-tag { color:var(--mid-accent); }
- .citat-section .section-title { color:var(--warm-white); }
- .citat-section .section-intro { color:var(--detail); }
- .citat-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:rgba(255,255,255,0.08); margin-bottom:40px; }
- .citat-card { background:var(--dark); padding:32px; border-top:3px solid transparent; }
- .citat-card.peach-border { border-color:var(--peach); }
- .citat-card.green-border { border-color:var(--green); }
- .citat-card.blue-border { border-color:var(--blue); }
- .citat-text { font-family:'Playfair Display',serif; font-size:17px; color:var(--warm-white); line-height:1.6; font-style:italic; margin-bottom:16px; }
- .citat-role { font-size:12px; color:var(--mid-accent); letter-spacing:0.1em; text-transform:uppercase; }
- .citat-form-wrap { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); padding:40px; }
- .citat-form-wrap h3 { font-family:'Playfair Display',serif; font-size:22px; color:var(--warm-white); margin-bottom:8px; }
- .citat-form-wrap p { font-size:14px; color:var(--detail); margin-bottom:24px; }
- .dark-input { width:100%; padding:13px 16px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); color:var(--warm-white); font-family:'DM Sans',sans-serif; font-size:14px; outline:none; margin-bottom:12px; transition:border-color 0.2s; }
- .dark-input:focus { border-color:var(--peach); }
- .dark-select { width:100%; padding:13px 16px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); color:var(--warm-white); font-family:'DM Sans',sans-serif; font-size:14px; outline:none; margin-bottom:12px; }
- .dark-select option { background:var(--dark); }
- .ai-badge { display:inline-flex; align-items:center; gap:6px; background:rgba(74,103,65,0.2); border:1px solid var(--green); padding:6px 12px; font-size:11px; color:var(--light-green); letter-spacing:0.08em; margin-bottom:20px; }
- .moderation-status { font-size:12px; margin-top:12px; padding:10px 14px; display:none; }
- .moderation-status.show { display:block; }
- .mod-ok { background:rgba(74,103,65,0.15); color:var(--light-green); border:1px solid var(--green); }
- .mod-fail { background:rgba(230,140,165,0.15); color:var(--rose); border:1px solid var(--rose); }
+/* === CITAT === */
+.citat-section { background: var(--peach-light); padding: 80px 60px; }
+.citat-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
+.citat-list { display: flex; flex-direction: column; gap: 24px; }
+.citat-card { background: var(--warm); padding: 28px 32px; border-left: 4px solid var(--peach); }
+.citat-text { font-family: 'Playfair Display', serif; font-size: 16px; color: var(--dark); line-height: 1.7; font-style: italic; margin-bottom: 12px; }
+.citat-role { font-size: 12px; color: var(--light); }
+.citat-form textarea, .citat-form select, .citat-form input {
+  width: 100%; padding: 13px 15px; border: 1px solid var(--detail);
+  background: var(--warm); font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--dark);
+  outline: none; margin-bottom: 12px;
+}
+.ai-badge { font-size: 11px; color: var(--light); margin-bottom: 12px; }
+.mod-status { font-size: 13px; margin-top: 12px; padding: 12px; display: none; }
+.mod-status.show { display: block; }
+.mod-ok { background: #EAF3DE; color: var(--green); }
 
- /* KÄLLOR */
- .kallor-section { padding:100px 60px; max-width:1200px; margin:0 auto; }
- .kalla-list { border-top:1px solid var(--detail); }
- .kalla-item { padding:20px 0; border-bottom:1px solid var(--detail); display:grid; grid-template-columns:120px 1fr auto; gap:32px; align-items:start; }
- .kalla-year { font-family:'Playfair Display',serif; font-size:26px; font-weight:700; color:var(--detail); padding-top:3px; }
- .kalla-ref { font-size:14px; color:var(--mid); line-height:1.6; font-weight:300; }
- .kalla-ref strong { color:var(--dark); font-weight:500; }
- .kalla-ref em { font-style:italic; }
- .kalla-buy { font-size:12px; color:var(--green); text-decoration:none; font-weight:500; white-space:nowrap; padding-top:4px; border-bottom:1px solid var(--green); transition:color 0.2s; }
- .kalla-buy:hover { color:var(--dark); border-color:var(--dark); }
+/* === KALLOR === */
+.kalla-list { display: flex; flex-direction: column; }
+.kalla-item { display: grid; grid-template-columns: 80px 1fr auto; gap: 24px; align-items: center; padding: 20px 0; border-bottom: 1px solid var(--detail); }
+.kalla-year { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--detail); }
+.kalla-ref { font-size: 14px; color: var(--mid); line-height: 1.6; }
+.kalla-buy { font-size: 11px; color: var(--dark); border: 1px solid var(--dark); padding: 6px 14px; text-decoration: none; white-space: nowrap; }
+.kalla-buy:hover { background: var(--dark); color: var(--warm); }
 
- /* MEMBERSHIP */
- .membership { background:var(--green); padding:100px 60px; }
- .membership-inner { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
- .membership h2 { font-family:'Playfair Display',serif; font-size:46px; font-weight:700; color:var(--warm-white); line-height:1.15; margin-bottom:16px; }
- .membership h2 em { color:var(--peach); font-style:italic; }
- .membership > div > p { color:rgba(255,255,255,0.75); font-size:16px; font-weight:300; line-height:1.7; margin-bottom:14px; }
- .benefits { list-style:none; margin:24px 0; }
- .benefits li { color:var(--light-green); font-size:14px; padding:9px 0; border-bottom:1px solid rgba(255,255,255,0.1); display:flex; align-items:center; gap:10px; }
- .benefits li::before { content:"→"; color:var(--peach); }
- .mem-form { background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); padding:44px; }
- .mem-form h3 { font-family:'Playfair Display',serif; font-size:26px; color:var(--warm-white); margin-bottom:6px; }
- .mem-form > p { font-size:13px; color:rgba(255,255,255,0.5); margin-bottom:28px; }
- .form-group { margin-bottom:16px; }
- .form-group label { display:block; font-size:11px; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.5); margin-bottom:7px; }
- .green-input { width:100%; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); color:var(--warm-white); padding:13px 15px; font-family:'DM Sans',sans-serif; font-size:14px; outline:none; transition:border-color 0.2s; }
- .green-input:focus { border-color:var(--peach); }
- .green-input option { background:var(--green); }
+/* === PARTNERS === */
+.partners-section { padding: 80px 60px; }
+.partners-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--detail); margin-top: 40px; }
+.partner-card { background: var(--warm); padding: 36px 32px; }
+.partner-name { font-family: 'Playfair Display', serif; font-size: 18px; color: var(--dark); margin-bottom: 12px; }
+.partner-body { font-size: 14px; color: var(--mid); line-height: 1.7; font-weight: 300; }
 
- /* FOOTER */
- footer { background:var(--dark); padding:44px 60px; display:flex; align-items:center; justify-content:space-between; }
- .footer-logo { font-family:'Playfair Display',serif; font-size:18px; font-weight:700; color:var(--warm-white); }
- .footer-copy { font-size:12px; color:var(--mid-accent); }
- .footer-links { display:flex; gap:20px; list-style:none; }
- .footer-links a { font-size:12px; color:var(--mid-accent); text-decoration:none; transition:color 0.2s; }
- .footer-links a:hover { color:var(--warm-white); }
+/* === MEMBER === */
+.member-section { background: var(--green); padding: 80px 60px; }
+.member-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
+.member-title { font-family: 'Playfair Display', serif; font-size: 42px; color: var(--warm); margin-bottom: 16px; line-height: 1.2; }
+.member-title em { font-style: italic; color: var(--peach); }
+.member-list { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-top: 24px; }
+.member-list li { font-size: 14px; color: rgba(255,255,255,0.8); padding-left: 20px; position: relative; }
+.member-list li::before { content: "→"; position: absolute; left: 0; color: var(--peach); }
+.mem-form { background: rgba(0,0,0,0.2); padding: 36px; }
+.mem-form h3 { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--warm); margin-bottom: 8px; }
+.mem-form p { font-size: 13px; color: rgba(255,255,255,0.6); margin-bottom: 20px; }
+.mem-form input, .mem-form select {
+  width: 100%; padding: 13px 15px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+  color: var(--warm); font-family: 'DM Sans', sans-serif; font-size: 14px; outline: none; margin-bottom: 12px;
+}
+.mem-form input::placeholder { color: rgba(255,255,255,0.4); }
 
- /* ANIMATIONS */
- @keyframes countUp { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
- .counter-number { animation: countUp 0.8s ease forwards; }
- .fade-in { opacity:0; transform:translateY(20px); transition:all 0.6s ease; }
- .fade-in.visible { opacity:1; transform:translateY(0); }
+/* === CONTACT === */
+.contact-section { padding: 80px 60px; }
+.contact-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
+.contact-form input, .contact-form textarea, .contact-form select {
+  width: 100%; padding: 13px 15px; border: 1px solid var(--detail);
+  background: var(--warm); font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--dark); outline: none; margin-bottom: 12px;
+}
+.contact-form textarea { min-height: 120px; resize: vertical; }
 
+/* === UTSATT HERO === */
+.utsatt-hero { background: var(--peach-light); padding: 80px 60px; }
+.utsatt-hero-inner { max-width: 900px; margin: 0 auto; }
+.utsatt-hero h1 { font-family: 'Playfair Display', serif; font-size: 56px; font-weight: 700; color: var(--dark); line-height: 1.1; margin-bottom: 20px; }
+.utsatt-hero h1 em { color: var(--rose); }
+.utsatt-hero p { font-size: 17px; color: var(--mid); line-height: 1.8; margin-bottom: 32px; font-weight: 300; max-width: 680px; }
+.utsatt-btns { display: flex; gap: 12px; flex-wrap: wrap; }
 
-/* ============================================
-  MOBILANPASSNING — KOMPLETT
-  ============================================ */
+/* === KARTLAGGNING APP === */
+.kartlaggning-section { padding: 80px 60px; }
+.kartlaggning-inner { max-width: 720px; margin: 0 auto; }
+.atm-note { background: var(--peach-light); border-left: 4px solid var(--peach); padding: 14px 18px; margin-bottom: 24px; font-size: 13px; color: var(--mid); line-height: 1.7; }
+.atm-lvrow { border-left: 4px solid; padding: 12px 16px; margin-bottom: 10px; background: #FAFAF8; }
+.atm-lvt { font-size: 13px; font-weight: 600; color: var(--dark); margin-bottom: 3px; }
+.atm-lvd { font-size: 12px; color: var(--mid); }
+.atm-pbar { height: 4px; background: var(--detail); margin-bottom: 24px; border-radius: 2px; }
+.atm-pfill { height: 4px; background: var(--peach); border-radius: 2px; transition: width 0.4s; }
+.atm-opt { background: var(--warm); border: 1px solid var(--detail); padding: 14px 18px; text-align: left; cursor: pointer; font-size: 15px; color: var(--dark); width: 100%; margin-bottom: 10px; transition: all 0.15s; font-family: 'DM Sans', sans-serif; }
+.atm-opt:hover { border-color: var(--peach); background: var(--peach-light); }
+.atm-opt.sel { border-color: var(--peach); background: var(--peach-light); font-weight: 500; }
+.atm-btn-p { background: var(--dark); color: var(--warm); border: none; padding: 14px 32px; font-size: 13px; font-weight: 500; cursor: pointer; letter-spacing: 0.06em; margin-top: 16px; font-family: 'DM Sans', sans-serif; }
+.atm-btn-p:hover { background: var(--mid); }
+.atm-btn-s { background: transparent; border: 1px solid var(--detail); padding: 10px 24px; cursor: pointer; font-size: 13px; color: var(--mid); font-family: 'DM Sans', sans-serif; }
+.atm-dimcard { background: var(--warm); border: 1px solid var(--detail); padding: 16px 20px; margin-bottom: 10px; }
+.atm-bartrack { height: 8px; background: var(--detail); margin-bottom: 6px; border-radius: 4px; }
+.atm-barfill { height: 8px; border-radius: 4px; transition: width 1s ease; }
+.atm-badge { display: inline-block; font-size: 11px; padding: 2px 10px; font-weight: 500; margin-left: 8px; }
+.atm-rbox { padding: 20px 24px; margin: 24px 0; border-left: 4px solid; }
+.atm-rbox p { font-size: 13px; color: var(--mid); line-height: 1.8; margin-bottom: 10px; }
+.atm-aibox { background: #F8F4F0; border: 1px solid var(--peach); padding: 24px; margin-top: 16px; }
+.atm-docbox { background: var(--warm); border: 1px solid var(--detail); padding: 28px 24px; font-size: 13px; color: var(--mid); line-height: 1.9; white-space: pre-wrap; margin-bottom: 20px; }
+.atm-crisis { margin-top: 24px; padding: 16px 20px; background: var(--peach-light); border-left: 4px solid var(--peach); font-size: 13px; color: var(--mid); line-height: 1.7; }
+.atm-crisis a { color: var(--green); text-decoration: underline; }
+
+/* === PDF SECTIONS === */
+.pdf-section { padding: 80px 60px; background: var(--dark); }
+.pdf-section-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.pdf-title { font-family: 'Playfair Display', serif; font-size: 38px; color: var(--warm); margin-bottom: 12px; line-height: 1.2; }
+.pdf-sub { font-size: 15px; color: rgba(255,255,255,0.6); line-height: 1.7; margin-bottom: 28px; font-weight: 300; }
+.pdf-features { display: flex; flex-direction: column; gap: 12px; }
+.pdf-feature { background: rgba(255,255,255,0.05); border-left: 3px solid var(--peach); padding: 16px 20px; font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.6; }
+
+/* === SUPPORT SECTION === */
+.support-section { padding: 60px 60px; }
+.support-inner { max-width: 1200px; margin: 0 auto; }
+.support-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--detail); margin-top: 32px; }
+.support-card { background: var(--warm); padding: 32px 28px; }
+.support-title { font-family: 'Playfair Display', serif; font-size: 18px; color: var(--dark); margin-bottom: 12px; }
+.support-body { font-size: 14px; color: var(--mid); line-height: 1.7; font-weight: 300; }
+.support-body a { color: var(--green); text-decoration: underline; }
+.support-body strong { font-weight: 600; }
+
+/* === FOOTER === */
+footer { background: var(--dark); padding: 40px 60px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+.footer-logo { font-family: 'Playfair Display', serif; font-size: 18px; color: var(--warm); }
+.footer-copy { font-size: 12px; color: var(--light); }
+.footer-links { display: flex; gap: 24px; list-style: none; }
+.footer-links a { font-size: 12px; color: var(--light); text-decoration: none; }
+.footer-links a:hover { color: var(--warm); }
+
+/* === DIVIDER === */
+hr.div { border: none; border-top: 1px solid var(--detail); }
+
+/* === MOBILE === */
 @media (max-width: 768px) {
-
- /* NAV */
- nav { padding: 14px 20px !important; }
- .nav-links { display: none !important; }
- .nav-logo { font-size: 17px !important; }
-
- /* TAB NAV */
- #tab-nav { top: 55px !important; overflow-x: auto; -webkit-overflow-scrolling: touch; }
- #tab-nav > div { padding: 0 12px !important; min-width: max-content; }
- #tab-nav button { padding: 14px 18px !important; font-size: 13px !important; white-space: nowrap; }
-
- /* HERO */
- .hero { 
-  padding: 90px 20px 48px !important; 
-  grid-template-columns: 1fr !important; 
-  gap: 32px !important; 
- }
- .hero h1 { font-size: 38px !important; }
- .hero p { font-size: 15px !important; }
- .hero-btns { flex-direction: column !important; }
- .hero-btns .btn { text-align: center !important; }
- .hero-stats { gap: 8px !important; }
- .stat-card { padding: 16px 18px !important; gap: 12px !important; }
- .stat-num { font-size: 30px !important; min-width: 60px !important; }
-
- /* COUNTERS */
- .counters-strip { padding: 40px 20px !important; }
- .counters-inner { 
-  grid-template-columns: repeat(2, 1fr) !important; 
-  gap: 2px !important;
- }
- .counter-block { padding: 28px 16px !important; }
- .counter-number { font-size: 38px !important; }
- .counter-label { font-size: 11px !important; }
-
- /* ALL SECTIONS */
- section { padding: 48px 20px !important; }
- .section-title { font-size: 28px !important; }
- .section-intro { font-size: 14px !important; margin-bottom: 28px !important; }
-
- /* BEGREPP */
- .begrepp-grid { grid-template-columns: 1fr !important; }
- .begrepp-card { padding: 24px 20px !important; }
- .begrepp-letter { font-size: 36px !important; }
- .begrepp-title { font-size: 18px !important; }
-
- /* STATISTIK */
- .stats-grid { grid-template-columns: 1fr !important; }
- .stat-block { padding: 28px 20px !important; }
- .stat-big { font-size: 38px !important; }
-
- /* SIRA */
- .sira-grid { grid-template-columns: repeat(2, 1fr) !important; }
- .sira-card { padding: 20px 14px !important; }
- .sira-letter { font-size: 36px !important; }
- .sira-download { 
-  flex-direction: column !important; 
-  gap: 16px !important; 
-  padding: 20px !important;
- }
-
- /* POLLS */
- .polls-section { padding: 48px 20px !important; }
- .polls-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
- .poll-card { padding: 24px 20px !important; }
-
- /* WISH */
- .wish-section { padding: 48px 20px !important; }
- .wish-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
- .wish-form { padding: 24px 20px !important; }
-
- /* CITAT */
- .citat-section { padding: 48px 20px !important; }
- .citat-grid { grid-template-columns: 1fr !important; }
- .citat-card { padding: 24px 20px !important; }
- .citat-form-wrap { padding: 24px 20px !important; }
-
- /* KÄLLOR */
- .kallor-section { padding: 48px 20px !important; }
- .kalla-item { 
-  grid-template-columns: 1fr !important; 
-  gap: 8px !important; 
-  padding: 16px 0 !important;
- }
- .kalla-year { font-size: 20px !important; }
-
- /* INSTAGRAM */
- .instagram-section { padding: 48px 20px !important; }
- .ig-grid { grid-template-columns: repeat(2, 1fr) !important; }
- .ig-header { flex-direction: column !important; align-items: flex-start !important; gap: 16px !important; }
-
- /* INLINE STYLE OVERRIDES - div med padding */
- div[style*="padding:100px 80px"],
- div[style*="padding:100px 60px"],
- div[style*="padding:80px 80px"],
- div[style*="padding:80px 60px"],
- div[style*="padding:60px 80px"],
- div[style*="padding:100px"] {
-  padding: 48px 20px !important;
- }
-
- /* GRIDS */
- div[style*="grid-template-columns:1fr 1fr"],
- div[style*="grid-template-columns:repeat(2"],
- div[style*="grid-template-columns:repeat(3"],
- div[style*="grid-template-columns:repeat(4"] {
-  grid-template-columns: 1fr !important;
- }
-
- /* FONT SIZES */
- div[style*="font-size:64px"],
- div[style*="font-size:76px"],
- div[style*="font-size:52px"] {
-  font-size: 34px !important;
-  line-height: 1.2 !important;
- }
- div[style*="font-size:42px"] { font-size: 28px !important; }
-
- /* MAX WIDTH */
- div[style*="max-width:1200px"],
- div[style*="max-width:900px"],
- div[style*="max-width:700px"] {
-  max-width: 100% !important;
- }
-
- /* APP CONTAINER */
- #app-container { padding: 20px 16px !important; }
- .opt-btn, .asmo { font-size: 14px !important; padding: 14px 16px !important; }
-
- /* FOOTER */
- footer { padding: 40px 20px !important; }
- footer div[style*="grid-template-columns"] { grid-template-columns: 1fr !important; }
-
- /* GENERAL OVERFLOW FIX */
- body { overflow-x: hidden !important; }
- * { max-width: 100%; word-break: break-word; }
- 
- /* IMAGES & LOGOS */
- img { max-width: 100% !important; height: auto !important; }
-
- /* GAP FIXES */
- div[style*="gap:80px"] { gap: 24px !important; }
- div[style*="gap:60px"] { gap: 20px !important; }
+  nav { padding: 14px 20px; }
+  .nav-links { display: none; }
+  .nav-spacer { height: 95px; }
+  #tab-nav > div { padding: 0 12px; }
+  .tab-btn { padding: 14px 16px; font-size: 12px; }
+  .hero, .wish-inner, .citat-inner, .member-inner, .contact-inner, .pdf-section-inner { grid-template-columns: 1fr; gap: 32px; }
+  .hero { padding: 40px 20px; }
+  .hero h1 { font-size: 36px; }
+  .counters { padding: 40px 20px; }
+  .counters-grid { grid-template-columns: 1fr 1fr; }
+  section { padding: 48px 20px; }
+  .section-title { font-size: 30px; }
+  .grid-2, .polls-grid, .partners-grid, .support-grid { grid-template-columns: 1fr; }
+  .sira-grid { grid-template-columns: repeat(2, 1fr); }
+  .stat-row { grid-template-columns: 70px 1fr; }
+  .stat-source { display: none; }
+  .utsatt-hero { padding: 48px 20px; }
+  .utsatt-hero h1 { font-size: 36px; }
+  .kartlaggning-section { padding: 48px 20px; }
+  .pdf-section { padding: 48px 20px; }
+  .support-section { padding: 48px 20px; }
+  .polls-section { padding: 48px 20px; }
+  .wish-section { padding: 48px 20px; }
+  .citat-section { padding: 48px 20px; }
+  .member-section { padding: 48px 20px; }
+  .contact-section { padding: 48px 20px; }
+  .partners-section { padding: 48px 20px; }
+  .sira-download { flex-direction: column; }
+  footer { padding: 32px 20px; flex-direction: column; text-align: center; }
+  .conclusion { padding: 28px; }
 }
-
-@media (max-width: 480px) {
- .hero h1 { font-size: 30px !important; }
- .counter-number { font-size: 30px !important; }
- .sira-grid { grid-template-columns: 1fr !important; }
- .counters-inner { grid-template-columns: 1fr !important; }
- .ig-grid { grid-template-columns: 1fr !important; }
-}
-
 </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
- <a href="#" class="nav-logo">
- Bakom konflikten</a>
- <ul class="nav-links">
-  <li><a href="#begrepp" onclick="showTab('professional')">Begrepp</a></li>
-  <li><a href="#statistik" onclick="showTab('professional')">Statistik</a></li>
-  <li><a href="#sira" onclick="showTab('professional')">SIRA(M)</a></li>
-  <li><a href="#omrostning" onclick="showTab('professional')">Rösta</a></li>
-  <li><a href="#onskelada" onclick="showTab('professional')">Önska</a></li>
-  <li><a href="#citat" onclick="showTab('professional')">Dela erfarenhet</a></li>
-  <li><a href="#kallor" onclick="showTab('professional')">Källor</a></li>
-  <li><a href="#partners" onclick="showTab('professional')">Samarbeten</a></li>
-  <li><a href="#kontakt" onclick="showTab('professional')">Kontakt</a></li>
-  <li><a href="#medlem" onclick="showTab('professional')">Bli medlem</a></li>
- </ul>
+  <a href="#" class="nav-logo" onclick="showTab('professional');return false;">Bakom konflikten</a>
+  <ul class="nav-links">
+    <li><a href="#begrepp" onclick="navTo('professional','begrepp')">Begrepp</a></li>
+    <li><a href="#statistik" onclick="navTo('professional','statistik')">Statistik</a></li>
+    <li><a href="#sira" onclick="navTo('professional','sira')">SIRA(M)</a></li>
+    <li><a href="#omrostning" onclick="navTo('professional','omrostning')">Rösta</a></li>
+    <li><a href="#onskelada" onclick="navTo('professional','onskelada')">Önska</a></li>
+    <li><a href="#citat" onclick="navTo('professional','citat')">Dela erfarenhet</a></li>
+    <li><a href="#kallor" onclick="navTo('professional','kallor')">Källor</a></li>
+    <li><a href="#partners" onclick="navTo('professional','partners')">Samarbeten</a></li>
+    <li><a href="#kontakt" onclick="navTo('professional','kontakt')">Kontakt</a></li>
+    <li><a href="#medlem" onclick="navTo('professional','medlem')">Bli medlem</a></li>
+  </ul>
 </nav>
 
-<div style="border-top:5px solid var(--dark); margin-top:69px;"></div>
+<div class="nav-spacer"></div>
 
-
-<!-- FLIKAR -->
-<div id="tab-nav" style="background:#FAF8F5; border-bottom:2px solid #C4B4A8; position:sticky; top:100px; z-index:90; box-shadow:0 2px 8px rgba(0,0,0,0.06);">
- <div style="max-width:1200px; margin:0 auto; display:flex; gap:0; padding:0 20px;">
-  <button onclick="showTab('professional')" id="tab-pro" style="padding:20px 32px; font-family:'DM Sans',sans-serif; font-size:15px; font-weight:600; color:#1E1410; background:transparent; border:none; border-bottom:4px solid #1E1410; cursor:pointer; letter-spacing:0.02em; white-space:nowrap;">För dig som arbetar nära människor</button>
-  <button onclick="showTab('utsatt')" id="tab-utsatt" style="padding:20px 32px; font-family:'DM Sans',sans-serif; font-size:15px; font-weight:600; color:#5A4038; background:transparent; border:none; border-bottom:4px solid transparent; cursor:pointer; letter-spacing:0.02em; white-space:nowrap;">För dig som är utsatt</button>
- </div>
+<!-- TAB NAV -->
+<div id="tab-nav">
+  <div>
+    <button class="tab-btn active" id="tab-pro" onclick="showTab('professional')">För dig som arbetar nära människor</button>
+    <button class="tab-btn" id="tab-utsatt" onclick="showTab('utsatt')">För dig som är utsatt</button>
+  </div>
 </div>
 
-<!-- UTSATT-SEKTION -->
-<div id="section-utsatt" style="display:none; padding-top:0;">
+<!-- ==================== PROFESSIONAL ==================== -->
+<div id="section-professional">
 
- <!-- HERO UTSATT -->
- <div style="background:#F5DDD5; padding:100px 80px;">
-  <div style="max-width:900px; margin:0 auto;">
-   <div style="font-family:'Helvetica Neue',Arial; font-size:13px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:#AB9084; margin-bottom:32px;">För dig som är utsatt</div>
-   <h1 style="font-family:'Playfair Display',Georgia,serif; font-size:64px; font-weight:700; color:#1E1410; line-height:1.08; margin-bottom:24px;">Du är inte ensam.<br><em style="color:#E68CA5;">Det du upplever<br>har ett namn.</em></h1>
-   <p style="font-size:18px; color:#5A4038; font-weight:300; line-height:1.8; max-width:680px; margin-bottom:48px;">Psykologisk kontroll lämnar inga synliga spår. Men den lämnar märken – i kroppen, i självbilden och i hur du lärt dig att ta upp plats. Det här är en kunskapsportal för dig som vill veta mer om psykiskt våld.</p>
-   <div style="display:flex; gap:16px; flex-wrap:wrap;">
-    <button onclick="showTab('utsatt');setTimeout(function(){var el=document.getElementById('digital-kartlaggning');if(el)el.scrollIntoView({behavior:'smooth'});setTimeout(function(){var btn=document.getElementById('atm-start');if(btn)btn.click();},600);},200);" style="display:inline-block;padding:16px 36px;background:#1E1410;color:#FAF8F5;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;border:none;cursor:pointer;letter-spacing:0.06em;">Gör kartläggningen</button>
-    
-   </div>
-  </div>
- </div>
-
- <!-- KARTLÄGGNING -->
- <div id="kartlaggning" style="padding:100px 80px; background:#FAF8F5;">
-  <div style="max-width:1200px; margin:0 auto;">
-   <div style="font-family:'Helvetica Neue',Arial; font-size:13px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:#AB9084; margin-bottom:24px;">Egenkartläggning</div>
-   <div style="display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:start;">
-    <div>
-     <h2 style="font-family:'Playfair Display',Georgia,serif; font-size:42px; font-weight:700; color:#1E1410; margin-bottom:16px; line-height:1.1;">Att se mönstret.</h2>
-     <p style="font-size:16px; color:#5A4038; font-weight:300; line-height:1.8; margin-bottom:24px;">En strukturerad kartläggning i fem dimensioner som hjälper dig att se om det du upplever kan vara psykologisk kontroll – och i så fall var mönstret är starkast.</p>
-     <p style="font-size:14px; color:#AB9084; font-style:italic; margin-bottom:32px;">Dina svar sparas inte och registreras inte. Du kan göra om kartläggningen obegränsat antal gånger. Kartläggningen är forskningsbaserad och kontrollerad för bias. Den är inte ett diagnostiskt instrument och ersätter inte professionellt stöd.</p>
-     <a href="/kartlaggning.pdf" download style="display:inline-block; padding:14px 32px; background:#1E1410; color:#FAF8F5; font-family:'DM Sans',sans-serif; font-size:13px; font-weight:500; text-decoration:none; letter-spacing:0.06em; margin-right:12px;">Ladda ner PDF</a>
-    </div>
-    <div style="background:#F5DDD5; padding:40px; border-left:4px solid #E8A898;">
-     <p style="font-family:'Playfair Display',Georgia,serif; font-size:20px; color:#1E1410; margin-bottom:16px; line-height:1.4; font-style:italic;">"Det stämde så väl när jag läste om psykologisk kontroll första gången. Det hade ett namn. Det var inte bara jag."</p>
-     <p style="font-size:13px; color:#AB9084; font-family:'Helvetica Neue',Arial;">Illustrativt citat baserat på vittnesmål från utsatta</p>
-    </div>
-   </div>
-  </div>
- </div>
-
- 
-
-<!-- AI KARTLÄGGNINGSVERKTYG -->
-<div id="digital-kartlaggning" style="padding:80px 20px;background:#FAF8F5;">
-<div style="max-width:720px;margin:0 auto;">
-<div style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#AB9084;margin-bottom:16px;">Digital egenkartläggning</div>
-<h2 style="font-family:'Playfair Display',Georgia,serif;font-size:38px;font-weight:700;color:#1E1410;margin-bottom:12px;line-height:1.1;">Att se mönstret.</h2>
-<p style="font-size:15px;color:#5A4038;line-height:1.7;margin-bottom:24px;">Svara på 14 frågor i fem dimensioner. Du får en visuell profil — och möjlighet att generera ett strukturerat underlag för myndighetsmöten med hjälp av AI.</p>
-
-<style>
-.atm-note{background:#F5DDD5;border-left:4px solid #E8A898;padding:14px 18px;margin-bottom:24px;font-size:13px;color:#5A4038;line-height:1.7;}
-.atm-lvrow{border-left:4px solid;padding:12px 16px;margin-bottom:10px;background:#FAFAF8;}
-.atm-lvt{font-size:13px;font-weight:600;color:#1E1410;margin-bottom:3px;}
-.atm-lvd{font-size:12px;color:#5A4038;}
-.atm-btn-p{background:#1E1410;color:#FAF8F5;border:none;padding:14px 32px;font-size:13px;font-weight:500;cursor:pointer;letter-spacing:0.06em;margin-top:16px;}
-.atm-btn-s{background:transparent;border:1px solid #C4B4A8;padding:10px 24px;cursor:pointer;font-size:13px;color:#5A4038;}
-.atm-pbar{height:4px;background:#E8DDD6;margin-bottom:24px;border-radius:2px;}
-.atm-pfill{height:4px;background:#E8A898;border-radius:2px;transition:width 0.4s;}
-.atm-opt{background:#FAF8F5;border:1px solid #C4B4A8;padding:14px 18px;text-align:left;cursor:pointer;font-size:15px;color:#1E1410;width:100%;margin-bottom:10px;transition:all 0.15s;}
-.atm-opt.sel{border-color:#E8A898;background:#F5DDD5;font-weight:500;}
-.atm-dimcard{background:#FAF8F5;border:1px solid #E8DDD6;padding:16px 20px;margin-bottom:10px;}
-.atm-bartrack{height:8px;background:#E8DDD6;margin-bottom:6px;border-radius:4px;}
-.atm-barfill{height:8px;border-radius:4px;}
-.atm-badge{display:inline-block;font-size:11px;padding:2px 10px;font-weight:500;margin-left:8px;}
-.atm-rbox{padding:20px 24px;margin:24px 0;border-left:4px solid;}
-.atm-rbox p{font-size:13px;color:#5A4038;line-height:1.8;margin-bottom:10px;}
-.atm-aibox{background:#F8F4F0;border:1px solid #E8A898;padding:24px;margin-top:16px;}
-.atm-docbox{background:#FAF8F5;border:1px solid #E8DDD6;padding:28px 24px;font-size:13px;color:#5A4038;line-height:1.9;white-space:pre-wrap;margin-bottom:20px;}
-.atm-crisis{margin-top:24px;padding:16px 20px;background:#F5DDD5;border-left:4px solid #E8A898;font-size:13px;color:#5A4038;line-height:1.7;}
-</style>
-
-<div id="atm-root"></div>
-
-<script>
-(function(){
-var atmQs=[
- {d:"Mönster och kommunikation",q:"Den andre är svår att förutsäga – ibland varm och tillgänglig, ibland kall eller frånvarande utan förklaring.",s:"Du anpassar när och hur du hör av dig. Du känner att du gjort något fel när du inte fått svar."},
- {d:"Mönster och kommunikation",q:"Den andre bestämmer hur, när och via vilken kanal ni kommunicerar – på hens villkor.",s:"Du måste alltid vara tillgänglig medan den andre svarar när hen vill."},
- {d:"Mönster och kommunikation",q:"Du läser av den andres humör och anpassar dig för att undvika konflikter eller dålig stämning.",s:"Du gör detta mer i den här relationen än i andra nära relationer."},
- {d:"Frihetsbegränsning",q:"Du ändrar vad du säger, eller låter bli att säga saker, för att slippa en dålig reaktion.",s:"Du var mer fri i början av relationen. Du är rädd för att något dåligt ska hända om du säger vad du behöver."},
- {d:"Frihetsbegränsning",q:"Du träffar vänner eller familj mer sällan, eller undviker att berätta om ditt liv för dem.",s:"Isoleringen har tilltagit sedan relationen inleddes."},
- {d:"Frihetsbegränsning",q:"Du har litet eller inget inflytande över beslut som rör barnen eller familjen.",s:"Det är du som alltid anpassar dig – det är inte ömsesidigt."},
- {d:"Rädsla och anpassning",q:"Du känner rädsla eller ångest inför samtal, möten eller reaktioner från den andre.",s:"Denna rädsla har ökat sedan relationen inleddes."},
- {d:"Rädsla och anpassning",q:"Den andre framställer dig som problemet – aggressiv, kontrollerande eller överdrivet känslig.",s:"Du har börjat tvivla på din egen bild av vad som hänt."},
- {d:"Rädsla och anpassning",q:"Du skuldbelägger dig själv och frågar dig vad du gjort för att orsaka problemen.",s:"Du var mer trygg i dig själv innan den här relationen."},
- {d:"Eskalering över tid",q:"Konflikterna eller de negativa reaktionerna har blivit vanligare eller mer intensiva med tiden.",s:"Tröskeln för vad som utlöser en negativ reaktion har sänkts."},
- {d:"Eskalering över tid",q:"Ditt handlingsutrymme – vad du kan säga, göra och vara – har krympt över tid.",s:"Du är mindre fri nu än för tre år sedan."},
- {d:"Konsekvenser",q:"Du tvivlar på ditt eget minne, dina bedömningar eller din uppfattning av verkligheten.",s:"Detta var inte ett mönster för dig innan den här relationen."},
- {d:"Konsekvenser",q:"Du har återkommande fysiska symptom som magont, huvudvärk eller sömnproblem utan medicinsk förklaring.",s:"Symptomen minskar när du har minst kontakt med den andre."},
- {d:"Konsekvenser",q:"Barnet verkar stressat, oroligt eller har förändrat beteende som du kopplar till situationen.",s:"Barnets mående har förändrats i takt med situationen."}
-];
-var atmDims=["Mönster och kommunikation","Frihetsbegränsning","Rädsla och anpassning","Eskalering över tid","Konsekvenser"];
-var atmOpts=["Sällan eller aldrig","Ibland","Ofta eller alltid"];
-var atmColors=["#4A6741","#6B8CAE","#E68CA5"];
-var atmBgs=["#EAF3DE","#E6F1FB","#FBEAF0"];
-var atmTxts=["#2E5A0E","#185FA5","#993556"];
-var atmTitles=["Relationsstress","Oroande mönster","Psykologisk kontroll"];
-var atmDesc=[
- "Ni har konflikter och det är påfrestande — men båda bidrar och ingen av er kontrollerar den andre. Det kan handla om olika kommunikationsstilar, stress eller gamla mönster från barndomen.\n\nOm båda vill finns möjlighet att förändra dynamiken — genom samtal, parterapi eller stöd från en familjerådgivare. Det är inte psykologisk kontroll, men det kan ändå vara värt att söka hjälp om det påverkar er vardag och era barn.",
- "Du märker att du anpassar dig mer än den andre. Kanske undviker du vissa ämnen, väljer ord med omsorg eller känner lättnad när hen är på gott humör — och skuld när hen inte är det. Det är inte ömsesidigt längre.\n\nMånga som befinner sig här får rådet att kommunicera annorlunda. Det rådet utgår från att problemet är delat — men asymmetri är inte ett kommunikationsproblem. En vanlig konsekvens av att ändra sitt eget beteende är att den andre eskalerar eller skiftar till nya angreppssätt.\n\nKonkret och säkert nästa steg: Börja dokumentera konkreta situationer — datum, vad som sades, hur du och barnet reagerade. Dela inte detta med den andre.\n\nDet kan också vara värdefullt att prata med någon som förstår det du beskriver. Du behöver inte ha bestämt dig för något för att ringa — Nationella kvinnojourslinjen finns där för samtal, råd och vägledning: 020-50 55 00, kostnadsfritt, dygnet runt. Hitta din lokala jour på roks.se eller unizon.se.",
- "Du rör dig försiktigt i din egen vardag. Du vet vilket humör hen är i innan du säger god morgon. Du ursäktar dig för saker du inte gjort. Du är trött på ett sätt som sömn inte botar.\n\nDet du upplever har ett namn. Och det är inte ditt fel.\n\nForskning visar att psykologisk kontroll kan vara farligare än det ser ut utifrån — även när inget fysiskt våld förekommit. Råd om att kommunicera bättre eller hantera situationen annorlunda är därför sällan rätt väg framåt.\n\nDet du behöver är inte fler strategier. Det du behöver är någon som ser vad som faktiskt pågår och hjälper dig att hitta din väg därifrån.\n\nEtt första steg kan vara att ringa Nationella kvinnojourslinjen — kostnadsfritt, dygnet runt, utan krav på att ha bestämt dig för något.\n\nDet kan också vara värdefullt att prata med någon som förstår det du beskriver. Du behöver inte ha bestämt dig för något för att ringa — Nationella kvinnojourslinjen finns där för samtal, råd och vägledning: 020-50 55 00, kostnadsfritt, dygnet runt. Hitta din lokala jour på roks.se eller unizon.se."
-];
-var atmNext=["Överväg samtal med en familjerådgivare om ni båda vill förändra dynamiken.","Prata med en kurator eller kontakta Nationella kvinnojourslinjen: 020-50 55 00.","Ring Nationella kvinnojourslinjen: 020-50 55 00 — kostnadsfritt, dygnet runt, utan krav på att ha bestämt dig för något."];
-
-var atmPhase="intro",atmCur=0,atmAns=new Array(atmQs.length).fill(null),atmDimLvls={},atmOverall=1,atmStory="",atmDoc="";
-
-function atmRender(){
- var r=document.getElementById("atm-root");
- if(atmPhase==="intro") r.innerHTML=atmIntro();
- else if(atmPhase==="quiz") r.innerHTML=atmQuiz();
- else if(atmPhase==="results") r.innerHTML=atmResults();
- else if(atmPhase==="generating") r.innerHTML='<div style="text-align:center;padding:60px 0"><div style="font-size:36px;margin-bottom:16px">🌿</div><p style="font-size:15px;color:#5A4038">Genererar ditt underlag...</p><p style="font-size:13px;color:#AB9084;margin-top:8px">Det tar 15–30 sekunder.</p></div>';
- else if(atmPhase==="document") r.innerHTML=atmDocument();
- atmBind();
-}
-
-function atmIntro(){
- return '<div class="atm-note">Dina svar sparas inte och registreras inte. Du kan göra om kartläggningen obegränsat antal gånger. Kartläggningen är forskningsbaserad och kontrollerad för bias. Den är inte ett diagnostiskt instrument och ersätter inte professionellt stöd.</div>'+
- '<div class="atm-lvrow" style="border-color:#4A6741"><div class="atm-lvt">Nivå 1 – Relationsstress</div><div class="atm-lvd">Enstaka konflikter, ömsesidiga, ingen systematisk rädsla.</div></div>'+
- '<div class="atm-lvrow" style="border-color:#6B8CAE"><div class="atm-lvt">Nivå 2 – Oroande mönster</div><div class="atm-lvd">Återkommande beteenden i minst två livsområden. Tydlig asymmetri.</div></div>'+
- '<div class="atm-lvrow" style="border-color:#E68CA5"><div class="atm-lvt">Nivå 3 – Psykologisk kontroll</div><div class="atm-lvd">Systematiskt mönster. Frihetsbegränsning. Rädsla som grundläge.</div></div>'+
- '<button class="atm-btn-p" id="atm-start">Starta kartläggningen</button>';
-}
-
-function atmQuiz(){
- var q=atmQs[atmCur];
- var pct=Math.round((atmCur/atmQs.length)*100);
- return '<div class="atm-pbar"><div class="atm-pfill" style="width:'+pct+'%"></div></div>'+
- '<div style="font-size:11px;color:#AB9084;margin-bottom:6px">Fråga '+(atmCur+1)+' av '+atmQs.length+'</div>'+
- '<div style="font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#AB9084;margin-bottom:14px">'+q.d+'</div>'+
- '<p style="font-size:17px;font-weight:500;color:#1E1410;line-height:1.6;margin-bottom:6px">'+q.q+'</p>'+
- '<p style="font-size:13px;color:#E68CA5;font-style:italic;line-height:1.6;margin-bottom:20px">'+q.s+'</p>'+
- atmOpts.map(function(o,i){return '<button class="atm-opt'+(atmAns[atmCur]===i?' sel':'')+'" data-i="'+i+'">'+o+'</button>';}).join("")+
- '<div style="display:flex;justify-content:space-between;margin-top:8px">'+
- '<button class="atm-btn-s" id="atm-back" '+(atmCur===0?'disabled':'')+'>Tillbaka</button>'+
- '<button class="atm-btn-p" id="atm-next" style="margin-top:0;opacity:'+(atmAns[atmCur]===null?0.4:1)+'" '+(atmAns[atmCur]===null?'disabled':'')+'>'+(atmCur===atmQs.length-1?'Se mitt resultat':'Nästa')+'</button>'+
- '</div>';
-}
-
-function atmResults(){
- var lv=atmOverall-1;
- var cards=atmDims.map(function(d){
-  var l=(atmDimLvls[d]||1)-1;
-  var pct=Math.max(l*50,5);
-  return '<div class="atm-dimcard"><div style="font-size:13px;font-weight:500;color:#1E1410;margin-bottom:8px">'+d+'</div><div class="atm-bartrack"><div class="atm-barfill" style="width:'+pct+'%;background:'+atmColors[l]+'"></div></div><div style="font-size:12px;color:#5A4038">Nivå '+(l+1)+'<span class="atm-badge" style="background:'+atmBgs[l]+';color:'+atmTxts[l]+'">'+atmTitles[l]+'</span></div></div>';
- }).join("");
- var descHtml=atmDesc[lv].split("\n\n").map(function(p){return '<p>'+p+'</p>';}).join("");
- return cards+
- '<div class="atm-rbox" style="border-left-color:'+atmColors[lv]+';background:'+atmBgs[lv]+'">'+
- '<div style="font-size:14px;font-weight:600;color:'+atmTxts[lv]+';margin-bottom:12px">Nivå '+(lv+1)+' – '+atmTitles[lv]+'</div>'+
- descHtml+
- '<div style="font-size:13px;font-weight:500;color:'+atmTxts[lv]+';margin-top:8px">'+atmNext[lv]+'</div></div>'+
- '<div class="atm-aibox">'+
- '<div style="font-size:14px;font-weight:600;color:#1E1410;margin-bottom:8px">Skapa ett underlag för myndighetsmöten</div>'+
- '<p style="font-size:13px;color:#5A4038;line-height:1.7;margin-bottom:16px">Beskriv din situation med egna ord — vad händer, hur länge det pågått och vad det gör med dig och ditt barn. Verktyget sammanfattar dina svar och din beskrivning i ett strukturerat underlag med koppling till lagstiftning och forskning.</p>'+
- '<textarea id="atm-story" style="width:100%;min-height:140px;padding:14px 16px;border:1px solid #C4B4A8;background:#FAF8F5;font-size:14px;color:#1E1410;line-height:1.7;resize:vertical;font-family:Arial,sans-serif;box-sizing:border-box" placeholder="Beskriv din situation här...">'+atmStory+'</textarea>'+
- '<div style="font-size:11px;color:#AB9084;margin:6px 0 16px">Din berättelse används för att generera underlaget och sparas inte.</div>'+
- '<button class="atm-btn-p" id="atm-gen" style="margin-top:0">Skapa underlag</button></div>'+
- '<button class="atm-btn-s" id="atm-restart" style="margin-top:20px">Börja om</button>';
-}
-
-function atmDocument(){
- return '<div style="background:#FFF8F0;border:1px solid #E8DDD6;border-left:4px solid #E68CA5;padding:14px 18px;margin-bottom:20px;font-size:12px;color:#5A4038;line-height:1.7">⚠️ Detta är ett samtalsstöd och ersätter inte juridisk rådgivning.</div>'+
- '<div class="atm-docbox">'+atmDoc+'</div>'+
- '<div style="display:flex;gap:12px;flex-wrap:wrap">'+
- '<button class="atm-btn-p" id="atm-copy" style="margin-top:0">Kopiera text</button>'+
- '<button class="atm-btn-s" id="atm-back-res">Tillbaka till resultat</button>'+
- '<button class="atm-btn-s" id="atm-restart">Börja om</button></div>'+
- '<div class="atm-crisis"><strong>Nationella kvinnojourslinjen:</strong> <a href="tel:020505500" style="color:inherit;font-weight:600;">020-50 55 00</a> — kostnadsfritt, dygnet runt. Hitta din lokala jour: <a href="https://roks.se/hitta-jour" target="_blank" style="color:#4A6741;">roks.se</a> eller <a href="https://unizon.se/hitta-hjalp" target="_blank" style="color:#4A6741;">unizon.se</a><br><strong>Brottsofferjouren:</strong> 116 006</div>';
-}
-
-function atmBind(){
- function on(id,fn){var e=document.getElementById(id);if(e)e.addEventListener("click",fn);}
- on("atm-start",function(){atmPhase="quiz";atmRender();});
- on("atm-back",function(){if(atmCur>0){atmCur--;atmRender();}});
- on("atm-next",function(){
-  if(atmAns[atmCur]===null)return;
-  if(atmCur===atmQs.length-1){atmCalc();}
-  else{atmCur++;atmRender();}
- });
- on("atm-gen",function(){
-  var ta=document.getElementById("atm-story");
-  if(!ta||!ta.value.trim())return;
-  atmStory=ta.value;
-  atmGenerate();
- });
- on("atm-copy",function(){navigator.clipboard.writeText(atmDoc);});
- on("atm-back-res",function(){atmPhase="results";atmRender();});
- on("atm-restart",function(){atmPhase="intro";atmCur=0;atmAns=new Array(atmQs.length).fill(null);atmStory="";atmDoc="";atmRender();});
- document.querySelectorAll(".atm-opt").forEach(function(b){
-  b.addEventListener("click",function(){atmAns[atmCur]=parseInt(b.dataset.i);atmRender();});
- });
- var ta=document.getElementById("atm-story");
- if(ta)ta.addEventListener("input",function(e){atmStory=e.target.value;});
-}
-
-function atmCalc(){
- var dS={},dC={};
- atmDims.forEach(function(d){dS[d]=0;dC[d]=0;});
- atmQs.forEach(function(q,i){if(atmAns[i]!==null){dS[q.d]+=atmAns[i];dC[q.d]++;}});
- atmDims.forEach(function(d){
-  var mx=dC[d]*2;var pct=mx>0?Math.round((dS[d]/mx)*100):0;
-  atmDimLvls[d]=pct<34?1:pct<67?2:3;
- });
- var tot=Object.values(atmDimLvls).reduce(function(a,b){return a+b;},0);
- atmOverall=tot/atmDims.length<1.67?1:tot/atmDims.length<2.34?2:3;
- atmPhase="results";atmRender();
-}
-
-function atmGenerate(){
- var lv = atmOverall;
- var lvTitle = atmTitles[lv-1];
- var date = new Date().toLocaleDateString("sv-SE");
- 
- // Dimension analysis
- var highDims = atmDims.filter(function(d){ return (atmDimLvls[d]||1) === 3; });
- var midDims = atmDims.filter(function(d){ return (atmDimLvls[d]||1) === 2; });
- 
- // Dimension-specific formulations
- var dimTexts = {
-  "M\u00F6nster och kommunikation": "Ett tydligt m\u00F6nster av kommunikationskontroll har beskrivits — den andre styr n\u00E4r, hur och via vilken kanal kontakt f\u00E5r ske, med of\u00F6rutsp\u00E5gbara v\u00E4xlingar mellan n\u00E4rhet och kyla.",
-  "Frihetsbegr\u00E4nsning": "En systematisk begr\u00E4nsning av handlingsutrymmet framkommer — avseende sociala kontakter, kommunikation, ekonomi och/eller beslut r\u00F6rande barnen.",
-  "R\u00E4dsla och anpassning": "Personen beskriver en genomg\u00E5ende anpassning driven av r\u00E4dsla f\u00F6r den andres reaktioner, inklusive sj\u00E4lvcensur och \u00F6vervakenhet.",
-  "Eskalering \u00F6ver tid": "M\u00F6nstret har tilltagit \u00F6ver tid — tröskeln f\u00F6r negativa reaktioner har s\u00E4nkts och utrymmet f\u00F6r egna val har minskat.",
-  "Konsekvenser": "Psykologisk p\u00E5verkan framkommer i form av ifrågasatt självbild, somatiska symptom och/eller p\u00E5verkad f\u00F6rm\u00E5ga att vara n\u00E4rvarande som f\u00F6r\u00E4lder."
- };
- 
- // Legal connections based on level
- var lagstiftning = "SOCIALTJ\u00C4NSTLAGEN (2025:400)\nSocialnämnden är skyldig att inleda utredning n\u00E4r uppgifter framkommer om att ett barn kan ha utsatts f\u00F6r v\u00E5ld eller bevittnat v\u00E5ld. Utredningen ska innefatta en riskbedömning för fortsatt v\u00E5ld (6 kap 1\u00A7).";
- 
- if(lv >= 2){
-  lagstiftning += "\n\nBARNKONVENTIONEN ARTIKEL 19\nStaten ska vidta alla l\u00E4mpliga \u00E5tg\u00E4rder f\u00F6r att skydda barnet mot alla former av fysiskt eller psykiskt v\u00E5ld, skada eller misshandel, vanv\u00E5rd eller f\u00F6rsumlig behandling, misshandel eller utnyttjande.";
- }
- 
- if(lv === 3){
-  lagstiftning += "\n\nBROTTSBALKEN 4 KAP 4A\u00A7 — OLAGA F\u00D6RF\u00D6LJELSE\nDen som f\u00F6rf\u00F6ljer en person genom upprepade kontakter, \u00F6vervakning eller liknande handlingar som syftar till att injaga allvarlig r\u00E4dsla kan d\u00F6mas f\u00F6r olaga f\u00F6rf\u00F6ljelse.\n\nPROP. 2025/26:138 — PSYKISKT V\u00C5LD\nPsykiskt v\u00E5ld kriminaliserats explicit i svensk lagstiftning. Systematisk psykologisk kontroll som begr\u00E4nsar en persons frihet och sj\u00E4lvbild omfattas av dessa best\u00E4mmelser.";
- }
- 
- // Research basis
- var forskning = "Stark (2007, 2024) visar att psykologisk kontroll \u00E4r den viktigaste kontexten f\u00F6r allvarligt och dödligt v\u00E5ld — \u00E4ven n\u00E4r inget fysiskt v\u00E5ld tidigare f\u00F6rekommit. Herman (1992) beskriver hur upprepad psykisk p\u00E5frestning f\u00F6r\u00E4ndrar nervsystemet och skapar ett kroniskt tillst\u00E5nd av \u00F6vervakenhet. Johnson (1995, 2008) s\u00E4rskiljer situationell parkonflikt fr\u00E5n kontrollerande v\u00E5ld — det sistn\u00E4mnda k\u00E4nnetecknas av asymmetri, eskalering och frihetsbegr\u00E4nsning i m\u00E5nga livsomr\u00E5den.";
- 
- // Authority meeting phrases
- var fraserBase = [
-  "Jag vill beskriva ett \u00E5terkommande m\u00F6nster, inte enstaka h\u00E4ndelser.",
-  "Jag ber om att ni utreder situationen \u00F6ver tid, inte bara nuläget.",
-  "Mitt barn visar tecken p\u00E5 stress som jag kopplar till situationen med den andre f\u00F6r\u00E4ldern."
- ];
- var fraserLv2 = ["Jag upplever att mina m\u00F6jligheter att fatta egna beslut systematiskt begr\u00E4nsas.", "Jag har b\u00F6rjat dokumentera konkreta situationer med datum och inneh\u00E5ll."];
- var fraserLv3 = ["Jag \u00F6nskar att ni beaktar risken f\u00F6r eskalering — forskning visar att psykologisk kontroll \u00E4r den st\u00E4rkaste riskfaktorn f\u00F6r allvarligt v\u00E5ld (Stark, 2024).", "Jag beh\u00F6ver att ni ser m\u00F6nstret, inte bara enstaka situationer."];
- 
- var fraser = fraserBase;
- if(lv >= 2) fraser = fraser.concat(fraserLv2);
- if(lv === 3) fraser = fraser.concat(fraserLv3);
- 
- // Build document
- var doc = "";
- doc += "STRUKTURERAT UNDERLAG F\u00D6R MYNDIGHETM\u00D6TEN\n";
- doc += "Bakom konflikten \u00B7 Egenkartl\u00E4ggning \u00B7 " + date + "\n";
- doc += "\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\n\n";
- 
- doc += "1. KARTL\u00C4GGNINGSRESULTAT\n";
- doc += "\u00D6vergripande niv\u00E5: " + lvTitle + " (Niv\u00E5 " + lv + " av 3)\n\n";
- atmDims.forEach(function(d){
-  var l = atmDimLvls[d]||1;
-  doc += " " + d + ": Niv\u00E5 " + l + " (" + atmTitles[l-1] + ")\n";
- });
- 
- doc += "\n2. MIN BESKRIVNING AV SITUATIONEN\n";
- doc += atmStory + "\n";
- 
- doc += "\n3. IDENTIFIERADE M\u00D6NSTER\n";
- if(highDims.length > 0){
-  highDims.forEach(function(d){ doc += "\u2022 " + dimTexts[d] + "\n"; });
- }
- if(midDims.length > 0){
-  midDims.forEach(function(d){ doc += "\u2022 " + dimTexts[d] + "\n"; });
- }
- if(highDims.length === 0 && midDims.length === 0){
-  doc += "Kartl\u00E4ggningen visar en niv\u00E5 av relationsstress utan tydliga m\u00F6nster av systematisk kontroll.\n";
- }
- 
- doc += "\n4. RELEVANT LAGSTIFTNING\n";
- doc += lagstiftning + "\n";
- 
- doc += "\n5. FORSKNINGSGRUND\n";
- doc += forskning + "\n";
- 
- doc += "\n6. FORMULERINGAR F\u00D6R MYNDIGHETM\u00D6TEN\n";
- fraser.forEach(function(f){ doc += "\u2022 " + f + "\n"; });
- 
- doc += "\n\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\n";
- doc += "Detta underlag \u00E4r ett samtalsst\u00F6d och ers\u00E4tter inte juridisk r\u00E5dgivning.\nKontakta Nationella kvinnojourslinjen (020-50 55 00) eller en jurist f\u00F6r professionellt st\u00F6d.\nBakom konflikten \u00B7 @bakom_konflikten \u00B7 bakomkonflikten.se";
- 
- atmDoc = doc;
- atmPhase = "document";
- atmRender();
-}
-
-if(document.readyState === 'loading') {
- document.addEventListener('DOMContentLoaded', function(){ try{ atmRender(); }catch(e){ console.error('ATM error:', e); } });
-} else {
- try{ atmRender(); }catch(e){ console.error('ATM error:', e); }
-}
-})();
-</script>
-</div>
-</div>
-<!-- SLUT AI KARTLÄGGNING -->
-
-<!-- HÄFTET -->
- <div id="haftet" style="padding:100px 80px; background:#1E1410;">
-  <div style="max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center;">
-   <div>
-    <div style="font-family:'Helvetica Neue',Arial; font-size:13px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:#AB9084; margin-bottom:24px;">Kunskapshäfte</div>
-    <h2 style="font-family:'Playfair Display',Georgia,serif; font-size:42px; font-weight:700; color:#FAF8F5; margin-bottom:16px; line-height:1.1;">När ingen ser<br>vad du ser.</h2>
-    <p style="font-size:16px; color:rgba(255,255,255,0.6); font-weight:300; line-height:1.8; margin-bottom:32px;">Ett kunskapshäfte om psykologisk kontroll – vad det är, varför det är så svårt att se och vad det gör med dig och dina barn. Med forskning och igenkännbara anonyma citat.</p>
-    <a href="/haftet_v2.pdf" download style="display:inline-block; padding:14px 32px; background:#E8A898; color:#1E1410; font-family:'DM Sans',sans-serif; font-size:13px; font-weight:500; text-decoration:none; letter-spacing:0.06em;">Ladda ner häftet gratis</a>
-   </div>
-   <div style="display:flex; flex-direction:column; gap:16px;">
-    <div style="background:rgba(255,255,255,0.05); border-left:3px solid #E8A898; padding:20px 24px;">
-     <p style="font-size:14px; color:rgba(255,255,255,0.7); line-height:1.7;">Vad är psykologisk kontroll och vad skiljer det från vanlig konflikt?</p>
-    </div>
-    <div style="background:rgba(255,255,255,0.05); border-left:3px solid #6B8CAE; padding:20px 24px;">
-     <p style="font-size:14px; color:rgba(255,255,255,0.7); line-height:1.7;">Varför är det så svårt att se – för dig själv och för systemet?</p>
-    </div>
-    <div style="background:rgba(255,255,255,0.05); border-left:3px solid #4A6741; padding:20px 24px;">
-     <p style="font-size:14px; color:rgba(255,255,255,0.7); line-height:1.7;">Vad gör det med dig, din kropp och dina barn?</p>
-    </div>
-    <div style="background:rgba(255,255,255,0.05); border-left:3px solid #E68CA5; padding:20px 24px;">
-     <p style="font-size:14px; color:rgba(255,255,255,0.7); line-height:1.7;">Hur möter du systemet – och vad kan göra det lättare?</p>
-    </div>
-   </div>
-  </div>
- </div>
-
- <!-- STÖD -->
- <div style="padding:80px 80px; background:#FAF8F5;">
-  <div style="max-width:1200px; margin:0 auto;">
-   <div style="font-family:'Helvetica Neue',Arial; font-size:13px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:#AB9084; margin-bottom:24px;">Nästa steg</div>
-   <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:#E8DDD6;">
-    <div style="background:#FAF8F5; padding:36px 32px;">
-     <div style="font-family:'Playfair Display',Georgia,serif; font-size:18px; font-weight:700; color:#1E1410; margin-bottom:12px;">Kontakta en kvinnojour</div>
-     <p style="font-size:14px; color:#5A4038; line-height:1.7; font-weight:300;">Kontakta en kvinnojour för att få hjälp att förstå din situation. Nationella kvinnojourslinjen: <strong>020-50 55 00</strong> — kostnadsfritt, dygnet runt. Hitta din lokala jour på <a href="https://roks.se/hitta-jour" target="_blank" style="color:#4A6741;">roks.se</a> eller <a href="https://unizon.se/hitta-hjalp" target="_blank" style="color:#4A6741;">unizon.se</a>.</p>
-    </div>
-    <div style="background:#FAF8F5; padding:36px 32px;">
-     <div style="font-family:'Playfair Display',Georgia,serif; font-size:18px; font-weight:700; color:#1E1410; margin-bottom:12px;">Läs mer på Instagram</div>
-     <p style="font-size:14px; color:#5A4038; line-height:1.7; font-weight:300;">@bakom_konflikten publicerar forskningsbaserat innehåll om psykologisk kontroll och vad det gör med barn och vuxna.</p>
-    </div>
-    <div style="background:#FAF8F5; padding:36px 32px;">
-     <div style="font-family:'Playfair Display',Georgia,serif; font-size:18px; font-weight:700; color:#1E1410; margin-bottom:12px;">Hör av dig till oss</div>
-     <p style="font-size:14px; color:#5A4038; line-height:1.7; font-weight:300;">Vi svarar på frågor och lyssnar. <a href="mailto:sjogren.hedenstrom@gmail.com" style="color:#4A6741;">sjogren.hedenstrom@gmail.com</a></p>
-    </div>
-   </div>
-  </div>
- </div>
-
-</div>
-<!-- SLUT UTSATT -->
-
-<div id="section-professional" style="display:none;">
 <!-- HERO -->
 <section class="hero">
- <div>
-  
-  <div class="hero-tag">Kunskapsportal · Psykologisk kontroll · SIRA(M)</div>
-  
-  <h1><em>Se mönstret.</em><br>Bakom<br>konflikten.</h1>
-  
-  <p>En öppen kunskapsportal om psykologisk kontroll, strukturerade samtal och barnets rättigheter — för dig som möter barn och familjer i ditt arbete, där konflikter präglar dynamiken och ord står mot ord.</p>
-  <div class="hero-btns">
-   <a href="#begrepp" class="btn btn-dark" onclick="showTab('professional')">Utforska begreppen</a>
-   <a href="#sira" class="btn btn-outline" onclick="showTab('professional')">Om SIRA(M)</a>
+  <div>
+    <div class="hero-tag">Kunskapsportal · Psykologisk kontroll · SIRA(M)</div>
+    <h1><em>Se mönstret.</em><br>Bakom<br>konflikten.</h1>
+    <p>En öppen kunskapsportal om psykologisk kontroll, strukturerade samtal och barnets rättigheter — för dig som möter barn och familjer i ditt arbete, där konflikter präglar dynamiken och ord står mot ord.</p>
+    <div class="hero-btns">
+      <button onclick="navTo('professional','begrepp')" class="btn btn-dark">Utforska begreppen</button>
+      <button onclick="navTo('professional','sira')" class="btn btn-outline">Om SIRA(M)</button>
+    </div>
   </div>
- </div>
- <div class="hero-stats">
-  <div class="stat-card dark-card">
-   
-  <div class="stat-num">57%</div>
-   <div>
-    <div class="stat-label">av elever i åk 9 uppger att de utsatts för våld under uppväxten</div>
-    <div class="stat-src">Allmänna Barnhuset, 2022</div>
-   </div>
+  <div class="hero-stats">
+    <div class="stat-card">
+      <div class="stat-num">57%</div>
+      <div>
+        <div class="stat-text">av elever i åk 9 uppger att de utsatts för våld under uppväxten</div>
+        <div class="stat-src">Allmänna Barnhuset, 2022</div>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">37%</div>
+      <div>
+        <div class="stat-text">felmarginal i ostrukturerade kliniska bedömningar</div>
+        <div class="stat-src">Garb, 1998; Mossman, 1994</div>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">2×</div>
+      <div>
+        <div class="stat-text">högre prediktiv validitet i strukturerade intervjuer än vid ostrukturerade samtal</div>
+        <div class="stat-src">Sackett m.fl., 2022</div>
+      </div>
+    </div>
   </div>
-  <div class="stat-card">
-   
-  <div class="stat-num">37%</div>
-   <div>
-    <div class="stat-label">felmarginal i ostrukturerade kliniska bedömningar</div>
-    <div class="stat-src">Garb, 1998; Mossman, 1994</div>
-   </div>
-  </div>
-  <div class="stat-card">
-   
-  <div class="stat-num">2×</div>
-   <div>
-    <div class="stat-label">högre prediktiv validitet i strukturerade intervjuer än vid ostrukturerade samtal</div>
-    <div class="stat-src">Sackett m.fl., 2022</div>
-   </div>
-  </div>
- </div>
 </section>
 
+<hr class="div">
+
 <!-- COUNTERS -->
-<div class="counters-strip">
- <div class="counters-inner">
-  <a href="https://journals.sagepub.com/doi/abs/10.1177/1077801219863876" target="_blank" rel="noopener" class="counter-block" style="text-decoration:none;cursor:pointer;display:block;">
-   <div class="counter-number" style="color:#E8A898">92%</div>
-   <div class="counter-label">av inhemska dödsoffer i brittisk studie hade en relation präglad av psykologisk kontroll</div>
-   <div class="counter-source">Monckton Smith, 2020 ↗</div>
-  </a>
-  <a href="https://svlas.org/wp-content/uploads/2021/11/coercive-control.pdf" target="_blank" rel="noopener" class="counter-block" style="text-decoration:none;cursor:pointer;display:block;">
-   <div class="counter-number" style="color:#E8A898">40%</div>
-   <div class="counter-label">av partnerdödande sker utan föregående fysiskt våld — psykologisk kontroll var det enda varningstecknet</div>
-   <div class="counter-source">Stark & Hester, 2019 ↗</div>
-  </a>
-  <a href="https://www.dvsn.org/britain-coercive-control-law/" target="_blank" rel="noopener" class="counter-block" style="text-decoration:none;cursor:pointer;display:block;">
-   <div class="counter-number" style="color:#E8A898">96%</div>
-   <div class="counter-label">av anmälda fall ledde till åtal i Skottland det första året — efter att yrkesverksamma utbildats i att se mönstret</div>
-   <div class="counter-source">DVSN / Police Scotland ↗</div>
-  </a>
-  <a href="https://www.socialstyrelsen.se/om-socialstyrelsen/pressrum/press/fler-barn-orosanmals--men-ofta-nar-det-har-gatt-for-langt/" target="_blank" rel="noopener" class="counter-block" style="text-decoration:none;cursor:pointer;display:block;">
-   <div class="counter-number" style="color:#E8A898">514 000</div>
-   <div class="counter-label">orosanmälningar om barn görs i Sverige varje år</div>
-   <div class="counter-source">Socialstyrelsen, 2025 ↗</div>
-  </a>
- </div>
+<div class="counters">
+  <div class="counters-grid">
+    <a href="https://journals.sagepub.com/doi/abs/10.1177/1077801219863876" target="_blank" rel="noopener" class="counter-item">
+      <div class="counter-num">92%</div>
+      <div class="counter-lbl">av inhemska dödsoffer i brittisk studie hade en relation präglad av psykologisk kontroll</div>
+      <div class="counter-src">Monckton Smith, 2020 ↗</div>
+    </a>
+    <a href="https://svlas.org/wp-content/uploads/2021/11/coercive-control.pdf" target="_blank" rel="noopener" class="counter-item">
+      <div class="counter-num">40%</div>
+      <div class="counter-lbl">av partnerdödande sker utan föregående fysiskt våld — psykologisk kontroll var det enda varningstecknet</div>
+      <div class="counter-src">Stark & Hester, 2019 ↗</div>
+    </a>
+    <a href="https://www.dvsn.org/britain-coercive-control-law/" target="_blank" rel="noopener" class="counter-item">
+      <div class="counter-num">96%</div>
+      <div class="counter-lbl">av anmälda fall ledde till åtal i Skottland det första året — efter att yrkesverksamma utbildats i att se mönstret</div>
+      <div class="counter-src">DVSN / Police Scotland ↗</div>
+    </a>
+    <a href="https://www.socialstyrelsen.se/om-socialstyrelsen/pressrum/press/fler-barn-orosanmals--men-ofta-nar-det-har-gatt-for-langt/" target="_blank" rel="noopener" class="counter-item">
+      <div class="counter-num">514 000</div>
+      <div class="counter-lbl">orosanmälningar om barn görs i Sverige varje år</div>
+      <div class="counter-src">Socialstyrelsen, 2025 ↗</div>
+    </a>
+  </div>
 </div>
 
-<!-- BEGREPP -->
+<hr class="div">
+
+<!-- SYSTEMANALYS / BEGREPP -->
 <section id="begrepp">
- <div class="section-tag">Systemanalys</div>
-   <div class="section-title">Fyra strukturella brister som håller våldet osynligt</div>
-   <p class="section-intro">Vår analys av ärenden, forskning och utredningar pekar på ett mönster. Det handlar inte om viljan att hjälpa — den finns. Det handlar om system som är byggda för att hantera det synliga, det akuta och det mätbara. Psykologisk kontroll är inget av detta.</p>
+  <div class="section-tag">Systemanalys</div>
+  <div class="section-title">Fyra strukturella brister som håller våldet osynligt</div>
+  <p class="section-intro">Vår analys av ärenden, forskning och utredningar pekar på ett mönster. Det handlar inte om viljan att hjälpa — den finns. Det handlar om system byggda för att hantera det synliga, det akuta och det mätbara. Psykologisk kontroll är inget av detta.</p>
 
-   <div class="begrepp-grid" style="margin-top:40px;">
-    <div class="begrepp-card" style="border-top:4px solid #E8A898;">
-     <div style="font-size:12px;font-weight:700;letter-spacing:0.15em;color:#AB9084;margin-bottom:12px;">BRIST 1</div>
-     <div class="begrepp-title">Implementeringsgapet</div>
-     <p class="begrepp-body">Lagen finns. Barnkonventionen gäller. Socialtjänstlagen kräver riskbedömning. Men ingen av dem levereras med ett metodstöd för att identifiera psykologisk kontroll. Yrkesverksamma möter dessa ärenden utan verktyg — och utan att veta att verktygen saknas.</p>
+  <div class="grid-2">
+    <div class="brist-card" style="border-top-color:#E8A898;">
+      <div class="brist-nr">BRIST 1</div>
+      <div class="brist-title">Implementeringsgapet</div>
+      <p class="brist-body">Lagen finns. Barnkonventionen gäller. Socialtjänstlagen kräver riskbedömning. Men ingen av dem levereras med ett metodstöd för att identifiera psykologisk kontroll. Yrkesverksamma möter dessa ärenden utan verktyg — och utan att veta att verktygen saknas.</p>
     </div>
-    <div class="begrepp-card" style="border-top:4px solid #6B8CAE;">
-     <div style="font-size:12px;font-weight:700;letter-spacing:0.15em;color:#AB9084;margin-bottom:12px;">BRIST 2</div>
-     <div class="begrepp-title">Fragmenteringen</div>
-     <p class="begrepp-body">BUP ser ångesten. Skolan ser frånvaron. Socialtjänsten ser konflikten. Familjerätten ser tvisten. Ingen äger helheten — och den som utövar kontroll rör sig fritt mellan alla dessa arenor. Mönstret syns bara om någon tittar på hela bilden.</p>
+    <div class="brist-card" style="border-top-color:#6B8CAE;">
+      <div class="brist-nr">BRIST 2</div>
+      <div class="brist-title">Fragmenteringen</div>
+      <p class="brist-body">BUP ser ångesten. Skolan ser frånvaron. Socialtjänsten ser konflikten. Familjerätten ser tvisten. Ingen äger helheten — och den som utövar kontroll rör sig fritt mellan alla dessa arenor. Mönstret syns bara om någon tittar på hela bilden.</p>
     </div>
-    <div class="begrepp-card" style="border-top:4px solid #4A6741;">
-     <div style="font-size:12px;font-weight:700;letter-spacing:0.15em;color:#AB9084;margin-bottom:12px;">BRIST 3</div>
-     <div class="begrepp-title">Dokumentationsfällan</div>
-     <p class="begrepp-body">Den utsatta dokumenterar. Sparar mejl, skärmdumpar, anteckningar. År efter år. Men utan en mottagare som förstår psykologisk kontroll riskerar bevisen att avfärdas som tecken på samarbetsproblem eller ömsesidig konflikt — snarare än som det de faktiskt är. Att leva i dokumentationsläge innebär att relationen till förövaren hålls aktiv långt efter den fysiska distansen skapats. Varje mejl är ett nytt bevis att samla. Varje hämtning en ny situation att notera. Det är inte frihet — det är kontroll som fortsätter, nu med systemet som oavsiktlig medskapare.</p>
+    <div class="brist-card" style="border-top-color:#4A6741;">
+      <div class="brist-nr">BRIST 3</div>
+      <div class="brist-title">Dokumentationsfällan</div>
+      <p class="brist-body">Den utsatta dokumenterar. Sparar mejl, skärmdumpar, anteckningar. År efter år. Men utan en mottagare som förstår psykologisk kontroll riskerar bevisen att avfärdas som tecken på samarbetsproblem. Att leva i dokumentationsläge innebär att relationen till den andre hålls aktiv långt efter den fysiska distansen skapats. Det är inte frihet — det är kontroll som fortsätter, nu med systemet som oavsiktlig medskapare.</p>
     </div>
-    <div class="begrepp-card" style="border-top:4px solid #E68CA5;">
-     <div style="font-size:12px;font-weight:700;letter-spacing:0.15em;color:#AB9084;margin-bottom:12px;">BRIST 4</div>
-     <div class="begrepp-title">Kompetensglappet i gråzonen</div>
-     <p class="begrepp-body">Psykologisk kontroll hamnar i gråzonen mellan det som är tydligt straffbart och det som uppfattas som "bara konflikt". Utan kompetens att särskilja kontroll från konflikt — och utan metodstöd — tenderar systemet att rubricera fel och ge råd som inte passar situationen.</p>
+    <div class="brist-card" style="border-top-color:#E68CA5;">
+      <div class="brist-nr">BRIST 4</div>
+      <div class="brist-title">Kompetensglappet i gråzonen</div>
+      <p class="brist-body">Psykologisk kontroll hamnar i gråzonen mellan det som är tydligt straffbart och det som uppfattas som "bara konflikt". Utan kompetens att särskilja kontroll från konflikt — och utan metodstöd — tenderar systemet att rubricera fel och ge råd som inte passar situationen.</p>
     </div>
-   </div>
-
-   <div style="background:#1E1410;padding:40px;margin-top:48px;max-width:800px;">
-    <div style="font-size:13px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#AB9084;margin-bottom:16px;">Vår slutsats</div>
-    <p style="font-size:18px;font-family:'Playfair Display',Georgia,serif;color:#FAF8F5;line-<div style="background:#1E1410;padding:40px;margin-top:48px;max-width:800px;">
-    
-    <p style="font-size:20px;font-family:'Playfair Display',Georgia,serif;color:#FAF8F5;line-height:1.6;margin-bottom:24px;font-style:italic;">"Metodik och kunskap är kvalitetssäkring."</p>
-
-    <p style="font-size:14px;color:#C4B4A8;line-height:1.8;margin-bottom:16px;">Sverige har en ny lag. Psykologisk kontroll är kriminaliserat. Men en lag utan kompetens att tillämpa den riskerar att bli en skrivbordsprodukt.</p>
-
-    <p style="font-size:14px;color:#C4B4A8;line-height:1.8;margin-bottom:16px;">Det vi ser i vår analys är ett land med stora strukturella brister — brister som inte handlar om brist på vilja, utan om brist på verktyg. Psykologisk kontroll lämnar inga synliga spår. Den syns i mönster över tid. Och mönster kräver en annan typ av kompetens än den som idag är standard i grundutbildningarna.</p>
-
-    <p style="font-size:14px;color:#C4B4A8;line-height:1.8;margin-bottom:16px;">Konsekvenserna av att missa det är inte abstrakta. Vi talar om dödligt våld som inte föregås av fysisk misshandel. Om barn som växer upp i en miljö präglad av psykologisk kontroll — en miljö som systemet har rubricerat som en konflikt, ett samarbetsproblem, en tvist mellan vuxna. Om våldsutsatta som systematiskt får rådet att dokumentera allt — utan en plan, och utan en mottagare som förstår vad de tittar på. Om sjukskrivningar, psykisk ohälsa och ett generationsöverförande av trauma som inte kunde brytas, för att vi inte satte rätt ord på det.</p>
-
-    <p style="font-size:14px;color:#C4B4A8;line-height:1.8;margin-bottom:16px;">Utbildning i psykologisk kontroll och ett strukturerat metodstöd löser inte allt. Men det minskar risken att viktiga mönster missas. Det skapar jämförbarhet mellan handläggare. Och det ger yrkesverksamma ett starkare underlag att stå på — oavsett hur pressad situationen är, och även när ord står mot ord i samtal med vårdnadshavare.</p>
-
-    <p style="font-size:14px;color:#C4B4A8;line-height:1.8;margin-bottom:16px;">Skottland visar vad som är möjligt. Innan lagen om psykologisk kontroll trädde i kraft 2019 investerade de i att utbilda polisen och åklagarna i att se mönstret. Resultatet: 96 procent av anmälda fall ledde till åtal det första året. I England och Wales — där samma typ av lag kom 2015, <em style="color:#E8A898;">utan</em> föregående utbildning — var siffran 13 procent.</p>
-
-    <p style="font-size:14px;color:#E8A898;line-height:1.8;margin-bottom:8px;font-weight:500;">Skillnaden är inte lagen. Det är kunskapen att använda den.</p>
-    <p style="font-size:12px;color:#5A4038;margin-bottom:16px;">Källa: DVSN / Police Scotland, 2019–2021</p>
-
-    <p style="font-size:14px;color:#C4B4A8;line-height:1.8;">Ett strukturerat metodstöd är inte svaret på allt. Men det är en nödvändig del av svaret.</p>
-   </div>
-  <div class="sira-card" style="background:var(--blue)">
-   <div class="sira-letter" style="color:var(--warm-white)">I</div>
-   <div class="sira-word" style="color:rgba(255,255,255,0.65)">Inverkan</div>
-   <div class="sira-desc" style="color:var(--warm-white)">Vad hände efteråt? Vad sa eller gjorde barnet? Observerade du någon reaktion? Hur slutade situationen?</div>
   </div>
-  <div class="sira-card" style="background:var(--light-green)">
-   <div class="sira-letter" style="color:var(--dark)">R</div>
-   <div class="sira-word">Rådighet</div>
-   <div class="sira-desc">Vad prioriterade du? Vägde du några risker? Upplevde du att du kunde påverka vad som hände?</div>
+
+  <div class="conclusion">
+    <div class="conclusion-label">Vår slutsats</div>
+    <div class="conclusion-quote">"Metodik och kunskap är kvalitetssäkring."</div>
+    <p class="conclusion-body">Sverige har en ny lag. Psykologisk kontroll är kriminaliserat. Men en lag utan kompetens att tillämpa den riskerar att bli en skrivbordsprodukt.</p>
+    <p class="conclusion-body">Konsekvenserna av att missa det är inte abstrakta. Vi talar om dödligt våld som inte föregås av fysisk misshandel. Om barn som växer upp i en miljö präglad av psykologisk kontroll — en miljö som systemet har rubricerat som en konflikt, ett samarbetsproblem, en tvist mellan vuxna. Om våldsutsatta som systematiskt får rådet att dokumentera allt — utan en plan, och utan en mottagare som förstår vad de tittar på. Om sjukskrivningar, psykisk ohälsa och ett generationsöverförande av trauma som inte kunde brytas, för att vi inte satte rätt ord på det.</p>
+    <p class="conclusion-body">Utbildning i psykologisk kontroll och ett strukturerat metodstöd löser inte allt. Men det minskar risken att viktiga mönster missas. Det skapar jämförbarhet mellan handläggare. Och det ger yrkesverksamma ett starkare underlag att stå på — oavsett hur pressad situationen är, och även när ord står mot ord.</p>
+    <p class="conclusion-body">Skottland visar vad som är möjligt. Innan lagen om psykologisk kontroll trädde i kraft 2019 investerade de i att utbilda polisen och åklagarna i att se mönstret. Resultatet: 96 procent av anmälda fall ledde till åtal det första året. I England och Wales — där samma typ av lag kom 2015, <em style="color:var(--peach)">utan</em> föregående utbildning — var siffran 13 procent.</p>
+    <div class="conclusion-highlight">Skillnaden är inte lagen. Det är kunskapen att använda den.</div>
+    <div class="conclusion-source">Källa: DVSN / Police Scotland, 2019–2021</div>
+    <p class="conclusion-body">Ett strukturerat metodstöd är inte svaret på allt. Men det är en nödvändig del av svaret.</p>
   </div>
-  <div class="sira-card" style="background:var(--rose)">
-   <div class="sira-letter" style="color:var(--warm-white)">A</div>
-   <div class="sira-word" style="color:rgba(255,255,255,0.7)">Agerande</div>
-   <div class="sira-desc" style="color:var(--warm-white)">Vad gjorde du konkret? Fanns det något du valde att inte göra? Vad skulle du göra annorlunda?</div>
+</section>
+
+<hr class="div">
+
+<!-- STATISTIK -->
+<section id="statistik">
+  <div class="section-tag">Forskning</div>
+  <div class="section-title">Varför strukturerade metoder?</div>
+  <p class="section-intro">Forskningen är tydlig: strukturerade bedömningar ger bättre utfall för barn och familjer än ostrukturerade samtal.</p>
+  <div class="stat-list">
+    <div class="stat-row">
+      <div class="stat-big">37%</div>
+      <div class="stat-info">
+        <strong>Felmarginal i ostrukturerade bedömningar</strong>
+        <p>Ostrukturerade kliniska bedömningar har en dokumenterad felmarginal på upp till 37 procent — vilket innebär att en betydande andel barn antingen inte får det skydd de behöver, eller utsätts för onödiga ingripanden.</p>
+      </div>
+      <div class="stat-source">Garb, 1998<br>Mossman, 1994</div>
+    </div>
+    <div class="stat-row">
+      <div class="stat-big">2×</div>
+      <div class="stat-info">
+        <strong>Högre prediktiv validitet i strukturerade intervjuer</strong>
+        <p>Strukturerade intervjuer ger dubbelt så hög prediktiv validitet jämfört med ostrukturerade samtal — det vill säga de förutsäger faktiska utfall för barnet med betydligt högre precision.</p>
+      </div>
+      <div class="stat-source">Sackett m.fl., 2022</div>
+    </div>
+    <div class="stat-row">
+      <div class="stat-big">96%</div>
+      <div class="stat-info">
+        <strong>Åtalsfrekvens i Skottland efter utbildning</strong>
+        <p>Det första året efter att psykologisk kontroll kriminaliserades i Skottland — med föregående utbildning av yrkesverksamma — ledde 96 procent av anmälda fall till åtal. I England och Wales, utan utbildning, var siffran 13 procent.</p>
+      </div>
+      <div class="stat-source">Police Scotland, 2019–2021</div>
+    </div>
   </div>
-  <div class="sira-card" style="background:var(--mid-accent)">
-   <div class="sira-letter" style="color:var(--warm-white)">(M)</div>
-   <div class="sira-word" style="color:rgba(255,255,255,0.65)">Mönster</div>
-   <div class="sira-desc" style="color:var(--warm-white)">Från samtal 2. Har liknande situationer uppstått? Hur brukar de sluta? Har barnet nämnt något?</div>
+</section>
+
+<hr class="div">
+
+<!-- SIRA -->
+<section id="sira">
+  <div class="section-tag">Strukturerad samtalsmetodik</div>
+  <div class="section-title">SIRA(M) — ett metodstöd för komplexa ärenden</div>
+  <p class="section-intro">SIRA(M) är ett semi-strukturerat samtalsramverk för yrkesverksamma som arbetar med ärenden där psykologisk kontroll kan förekomma. Det ger struktur, jämförbarhet och ett starkare underlag — oavsett handläggare.</p>
+
+  <div class="sira-grid">
+    <div class="sira-card" style="background:#1E1410;">
+      <div class="sira-letter">S</div>
+      <div class="sira-word">Situation</div>
+      <div class="sira-desc">Vad har hänt? Konkreta händelser, tidpunkter och sammanhang.</div>
+    </div>
+    <div class="sira-card" style="background:#6B8CAE;">
+      <div class="sira-letter">I</div>
+      <div class="sira-word">Inverkan</div>
+      <div class="sira-desc">Hur har det påverkat barnet och den vuxna — kort och lång sikt?</div>
+    </div>
+    <div class="sira-card" style="background:#4A6741;">
+      <div class="sira-letter">R</div>
+      <div class="sira-word">Rådighet</div>
+      <div class="sira-desc">Vilket handlingsutrymme har personen? Vad begränsar det?</div>
+    </div>
+    <div class="sira-card" style="background:#E68CA5;">
+      <div class="sira-letter" style="color:#1E1410;">A</div>
+      <div class="sira-word" style="color:rgba(30,20,16,0.7);">Agerande</div>
+      <div class="sira-desc" style="color:rgba(30,20,16,0.85);">Vad har gjorts? Vad har fungerat eller inte fungerat?</div>
+    </div>
+    <div class="sira-card" style="background:#E8A898;">
+      <div class="sira-letter" style="color:#1E1410;">M</div>
+      <div class="sira-word" style="color:rgba(30,20,16,0.7);">Mönster</div>
+      <div class="sira-desc" style="color:rgba(30,20,16,0.85);">Finns det ett återkommande mönster? Vad berättar det?</div>
+    </div>
   </div>
- </div>
- <div class="sira-download">
-  <div>
-   
-  <div style="font-family:'Playfair Display',serif;font-size:18px;color:var(--dark);margin-bottom:6px;">Ladda ner den kompletta guiden</div>
-   <div style="font-size:14px;color:var(--mid-accent)">Guide 1: Strukturerade samtal i högkonfliktsituationer — kostnadsfri</div>
+
+  <div class="sira-download">
+    <div>
+      <div class="sira-download-title">Ladda ner den kompletta guiden</div>
+      <div class="sira-download-sub">Guide 1: Strukturerade samtal i högkonfliktsituationer — kostnadsfri</div>
+    </div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+      <button onclick="window.open('/guide.pdf','_blank')" class="btn btn-dark" style="border:none;cursor:pointer;">Ladda ner guiden</button>
+      <a href="https://www.instagram.com/p/DY0HSbzst4x/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="btn btn-outline">Läs mer på Instagram</a>
+    </div>
   </div>
-  <div style="display:flex;gap:12px;flex-wrap:wrap;">
-    <button onclick="window.open('/guide.pdf', '_blank')" class="btn btn-dark" style="border:none;cursor:pointer;">Ladda ner guiden</button>
-    <a href="https://www.instagram.com/p/DY0HSbzst4x/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="btn btn-outline">Läs mer på Instagram</a>
-  </div>
- </div>
 </section>
 
 <hr class="div">
 
 <!-- OMRÖSTNING -->
 <div class="polls-section" id="omrostning">
- <div class="polls-inner">
-  <div class="section-tag">Community</div>
-  <div class="section-title">Din röst formar innehållet</div>
-  <p class="section-intro">Rösta anonymt — resultaten hjälper oss prioritera vad vi gör härnäst.</p>
-  <div class="polls-grid">
-
-   <div class="poll-card">
-    
-    <div class="poll-question">Vilket begrepp möter du mest i ditt dagliga arbete?</div>
-    <div id="poll1">
-     <div class="poll-option"><label><input type="radio" name="p1" value="0"> DARVO och rollbyte</label></div>
-     <div class="poll-option"><label><input type="radio" name="p1" value="1"> Bekräftelsebias</label></div>
-     <div class="poll-option"><label><input type="radio" name="p1" value="2"> Traumatiskt band</label></div>
-     <div class="poll-option"><label><input type="radio" name="p1" value="3"> Ord mot ord-situationer</label></div>
-     <button class="btn btn-green" style="margin-top:16px;width:100%" onclick="vote('poll1',1)">Rösta</button>
+  <div class="polls-inner">
+    <div class="section-tag" style="color:var(--light)">Community</div>
+    <div class="section-title" style="color:var(--warm)">Din röst formar innehållet</div>
+    <p class="section-intro" style="color:rgba(255,255,255,0.6)">Rösta anonymt — resultaten hjälper oss prioritera vad vi gör härnäst.</p>
+    <div class="polls-grid" id="polls-container">
+      <div class="poll-card">
+        <div class="poll-q">Vilket område behöver mest metodstöd?</div>
+        <div class="poll-opts">
+          <button class="poll-opt" onclick="vote(this,0,0)">Socialtjänstens utredningar</button>
+          <button class="poll-opt" onclick="vote(this,0,1)">Familjerätten</button>
+          <button class="poll-opt" onclick="vote(this,0,2)">BUP och elevhälsa</button>
+          <button class="poll-opt" onclick="vote(this,0,3)">Familjebehandling</button>
+        </div>
+      </div>
+      <div class="poll-card">
+        <div class="poll-q">Vad saknar du mest i ditt arbete?</div>
+        <div class="poll-opts">
+          <button class="poll-opt" onclick="vote(this,1,0)">Utbildning i psykologisk kontroll</button>
+          <button class="poll-opt" onclick="vote(this,1,1)">Strukturerade frågemallar</button>
+          <button class="poll-opt" onclick="vote(this,1,2)">Samverkan mellan myndigheter</button>
+          <button class="poll-opt" onclick="vote(this,1,3)">Tid för fördjupad analys</button>
+        </div>
+      </div>
     </div>
-   </div>
-
-   <div class="poll-card">
-    
-    <div class="poll-question">Vad är den svåraste utmaningen i ärenden med psykologisk kontroll?</div>
-    <div id="poll2">
-     <div class="poll-option"><label><input type="radio" name="p2" value="0"> Att barnet inte berättar</label></div>
-     <div class="poll-option"><label><input type="radio" name="p2" value="1"> Att båda parter verkar trovärdiga</label></div>
-     <div class="poll-option"><label><input type="radio" name="p2" value="2"> Tidsbrist och hög belastning</label></div>
-     <div class="poll-option"><label><input type="radio" name="p2" value="3"> Brist på metodstöd</label></div>
-     <button class="btn btn-green" style="margin-top:16px;width:100%" onclick="vote('poll2',2)">Rösta</button>
-    </div>
-   </div>
-
   </div>
- </div>
 </div>
-
-<!-- ÖNSKELÅDA -->
-<section class="wish-section" id="onskelada">
- <div class="section-tag">Önska nästa guide</div>
- <div class="section-title">Vad behöver du mest?</div>
- <p class="section-intro">Rösta fram nästa guide eller föreslå ett nytt tema. Vi bygger det ni faktiskt behöver i ert arbete.</p>
- <div class="wish-grid">
-  <div class="wish-form">
-   <h3>Föreslå ett tema</h3>
-   <p>Anonymt. Alla förslag granskas och publiceras om de följer vår etiska kod.</p>
-   <input class="wish-input" placeholder="Titel på förslaget" id="wish-title">
-   <textarea class="wish-textarea" placeholder="Beskriv vad du behöver — ju mer konkret, desto bättre..." id="wish-desc"></textarea>
-   <button class="btn btn-dark" style="width:100%" onclick="submitWish()">Skicka förslag</button>
-  </div>
-  <div>
-   <div style="font-family:'Playfair Display',serif;font-size:18px;color:var(--dark);margin-bottom:20px;">Populäraste önskemålen</div>
-   <div class="wish-list" id="wish-list">
-    <div class="wish-item">
-     
-    <div class="wish-item-title">Guide 2: Dokumentation av mönster över tid</div>
-     <div style="font-size:13px;color:var(--mid-accent)">Hur skriver man utredningsdokumentation som synliggör mönster och håller vid granskning?</div>
-     <div class="wish-item-votes">
-      <button class="wish-vote-btn" onclick="wishVote(this, 'w1')">↑ Rösta</button>
-      <span class="wish-votes-count" id="w1">14 röster</span>
-     </div>
-    </div>
-    <div class="wish-item">
-     
-    <div class="wish-item-title">Guide 3: Barns signaler och beteendemönster</div>
-     <div style="font-size:13px;color:var(--mid-accent)">Hur tolkar man barnets signaler när barnet inte berättar med ord?</div>
-     <div class="wish-item-votes">
-      <button class="wish-vote-btn" onclick="wishVote(this, 'w2')">↑ Rösta</button>
-      <span class="wish-votes-count" id="w2">11 röster</span>
-     </div>
-    </div>
-    <div class="wish-item">
-     
-    <div class="wish-item-title">Guide 4: Samverkan mellan myndigheter</div>
-     <div style="font-size:13px;color:var(--mid-accent)">Hur skapar man ett gemensamt språk och delar underlag mellan socialtjänst, BUP och skola?</div>
-     <div class="wish-item-votes">
-      <button class="wish-vote-btn" onclick="wishVote(this, 'w3')">↑ Rösta</button>
-      <span class="wish-votes-count" id="w3">8 röster</span>
-     </div>
-    </div>
-   </div>
-  </div>
- </div>
-</section>
 
 <hr class="div">
 
-<!-- CITAT -->
+<!-- ÖNSKA -->
+<div class="wish-section" id="onskelada">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="wish-inner">
+      <div>
+        <div class="section-tag">Kunskapslådan</div>
+        <div class="section-title">Vad vill du lära dig mer om?</div>
+        <p class="section-intro">Skicka ett förslag på vad du vill att vi fördjupar oss i — ett begrepp, ett scenario, en fråga från fältet.</p>
+        <p style="font-size:14px;color:var(--light);">Alla förslag granskas och de mest efterfrågade prioriteras i vår nästa guide.</p>
+      </div>
+      <div class="wish-form">
+        <input type="text" id="wish-role" placeholder="Din yrkesroll (frivilligt)">
+        <textarea id="wish-text" rows="4" placeholder="Beskriv vad du vill lära dig mer om..."></textarea>
+        <button onclick="submitWish()" class="btn btn-dark" style="width:100%;">Skicka förslag</button>
+        <div id="wish-status"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="div">
+
+<!-- DELA ERFARENHET -->
 <div class="citat-section" id="citat">
- <div class="citat-inner">
-  <div class="section-tag">Röster från fältet</div>
-  <div class="section-title" style="color:var(--warm-white)">Yrkesverksammas erfarenheter</div>
-  <p class="section-intro" style="color:var(--detail)">Anonyma citat från socialsekreterare, familjerättshandläggare och familjebehandlare. Granskade enligt etisk kod innan publicering.</p>
-
-  <div class="citat-grid">
-   <div class="citat-card peach-border">
-    
-   <div class="citat-text">"Jag har arbetat i åtta år och aldrig haft ett verktyg som hjälper mig skilja på konflikt och kontroll. Det har alltid handlat om magkänsla."</div>
-    <div class="citat-role">Socialsekreterare, barn och unga</div>
-   </div>
-   <div class="citat-card green-border">
-    
-   <div class="citat-text">"Det svåraste är när båda föräldrarna framstår som trovärdiga och engagerade. Barnet är tyst. Och vi har ingenting att jämföra med."</div>
-    <div class="citat-role">Familjerättshandläggare</div>
-   </div>
-   <div class="citat-card blue-border">
-    
-   <div class="citat-text">"Strukturerade frågor förändrar samtalet. Förövaren har svårare att styra narrativet när frågorna är situationsbaserade och identiska för båda."</div>
-    <div class="citat-role">Familjebehandlare</div>
-   </div>
+  <div class="citat-inner">
+    <div>
+      <div class="section-tag">Röster från fältet</div>
+      <div class="section-title">Dela din erfarenhet</div>
+      <p style="font-size:15px;color:var(--mid);line-height:1.7;margin-bottom:28px;font-weight:300;">Anonymiserade erfarenheter från yrkesverksamma som möter dessa ärenden i sitt arbete.</p>
+      <div class="citat-list">
+        <div class="citat-card">
+          <div class="citat-text">"Det som är svårast är när barnet inte berättar. Man ser att något är fel men kan inte sätta ord på vad."</div>
+          <div class="citat-role">Socialsekreterare, mellanstor kommun</div>
+        </div>
+        <div class="citat-card">
+          <div class="citat-text">"Föräldern som framstår som mest samarbetsvillig är inte alltid den som bäst tillgodoser barnets behov."</div>
+          <div class="citat-role">Familjerättshandläggare</div>
+        </div>
+        <div class="citat-card">
+          <div class="citat-text">"Vi saknar ett gemensamt språk för att prata om det vi ser. SIRA(M) ger oss det."</div>
+          <div class="citat-role">Familjebehandlare</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="citat-form">
+        <div class="ai-badge">✦ Manuell granskning · Etisk kod · Anonymt</div>
+        <p style="font-size:14px;color:var(--mid);line-height:1.7;margin-bottom:16px;">Dela din erfarenhet med oss. Vi granskar alla bidrag manuellt innan de eventuellt publiceras anonymt. Inga personuppgifter sparas.</p>
+        <select id="citat-role">
+          <option value="">Din yrkesroll</option>
+          <option>Socialsekreterare</option>
+          <option>Familjerättshandläggare</option>
+          <option>Familjebehandlare</option>
+          <option>Skolkurator / Elevhälsa</option>
+          <option>BUP</option>
+          <option>Polis</option>
+          <option>Åklagare</option>
+          <option>Annan</option>
+        </select>
+        <textarea id="citat-text" rows="5" placeholder="Beskriv en situation, ett mönster eller en reflektion från ditt arbete..."></textarea>
+        <button onclick="submitCitat()" class="btn btn-peach" style="width:100%;">Skicka för granskning</button>
+        <div class="mod-status" id="mod-status"></div>
+      </div>
+    </div>
   </div>
-
-  <div class="citat-form-wrap">
-   <div class="ai-badge">✦ Manuell granskning · Etisk kod · Anonymt</div>
-   <h3>Dela din erfarenhet</h3>
-   <p>Dela din erfarenhet med oss. Vi granskar alla bidrag manuellt innan de eventuellt publiceras anonymt. Inga personuppgifter sparas.</p>
-   <select class="dark-select" id="citat-role">
-    <option value="">Välj yrkesroll (anonymt)</option>
-    <option>Socialsekreterare, barn och unga</option>
-    <option>Familjerättshandläggare</option>
-    <option>Familjebehandlare</option>
-    <option>Psykolog / Kurator, BUP</option>
-    <option>Elevhälsopersonal</option>
-    <option>Jurist / Domare</option>
-    <option>Annat</option>
-   </select>
-   <textarea class="dark-input" style="min-height:100px;resize:vertical" placeholder="Din erfarenhet, observation eller reflektion från arbetet..." id="citat-text"></textarea>
-   <button class="btn btn-peach" style="width:100%" onclick="submitCitat()">Skicka för granskning</button>
-   <div class="moderation-status" id="mod-status"></div>
-  </div>
- </div>
 </div>
 
-<!-- KÄLLOR -->
-<section class="kallor-section" id="kallor">
- <div class="section-tag">Referenslista</div>
- <div class="section-title">Källor och forskning</div>
- <p class="section-intro">Alla påståenden och metodval är förankrade i etablerad forskning. Klicka för att köpa eller läsa mer.</p>
- <div class="kalla-list">
+<hr class="div">
 
-  <div class="kalla-item">
-   <div class="kalla-year">2025</div>
-   <div class="kalla-ref"><strong>Socialstyrelsen.</strong> Anmälningar om barn som far illa eller misstänks fara illa 2024. Nationell kartläggning.</div>
-   <a href="https://www.socialstyrelsen.se" target="_blank" class="kalla-buy">Läs →</a>
+<!-- KÄLLFÖRTECKNING -->
+<section id="kallor">
+  <div class="section-tag">Referenslista</div>
+  <div class="section-title">Källor och forskning</div>
+  <p class="section-intro">Alla påståenden och metodval är förankrade i etablerad forskning.</p>
+  <div class="kalla-list">
+    <div class="kalla-item">
+      <div class="kalla-year">2025</div>
+      <div class="kalla-ref"><strong>Socialstyrelsen.</strong> Anmälningar om barn som far illa eller misstänks fara illa 2024.</div>
+      <a href="https://www.socialstyrelsen.se/om-socialstyrelsen/pressrum/press/fler-barn-orosanmals--men-ofta-nar-det-har-gatt-for-langt/" target="_blank" class="kalla-buy">Läs →</a>
+    </div>
+    <div class="kalla-item">
+      <div class="kalla-year">2024</div>
+      <div class="kalla-ref"><strong>Stark, E.</strong> <em>Children of Coercive Control.</em> Oxford University Press.</div>
+      <a href="https://global.oup.com/academic/product/children-of-coercive-control-9780197587096" target="_blank" class="kalla-buy">Köp →</a>
+    </div>
+    <div class="kalla-item">
+      <div class="kalla-year">2024</div>
+      <div class="kalla-ref"><strong>Xyrakis, N. m.fl.</strong> Interparental Coercive Control and Child and Family Outcomes. <em>Trauma, Violence, & Abuse</em>, 25(1).</div>
+      <a href="https://doi.org/10.1177/15248380221139243" target="_blank" class="kalla-buy">Läs →</a>
+    </div>
+    <div class="kalla-item">
+      <div class="kalla-year">2022</div>
+      <div class="kalla-ref"><strong>Allmänna Barnhuset.</strong> <em>Våld mot barn 2022 — en nationell kartläggning.</em></div>
+      <a href="https://www.allmannabarnhuset.se" target="_blank" class="kalla-buy">Läs →</a>
+    </div>
+    <div class="kalla-item">
+      <div class="kalla-year">2022</div>
+      <div class="kalla-ref"><strong>Sackett, P.R., Zhang, C., Berry, C.M. & Lievens, F.</strong> Revisiting meta-analytic estimates of validity in personnel selection. <em>Journal of Applied Psychology</em>, 107(9).</div>
+      <span class="kalla-buy" style="color:var(--detail);border-color:var(--detail);cursor:default;">Akademisk</span>
+    </div>
+    <div class="kalla-item">
+      <div class="kalla-year">2021</div>
+      <div class="kalla-ref"><strong>Kahneman, D., Sibony, O. & Sunstein, C.R.</strong> <em>Noise: A Flaw in Human Judgment.</em> Little, Brown Spark.</div>
+      <a href="https://www.adlibris.com/sv/bok/noise-9780316451406" target="_blank" class="kalla-buy">Köp →</a>
+    </div>
+    <div class="kalla-item">
+      <div class="kalla-year">2020</div>
+      <div class="kalla-ref"><strong>Harsey, S. & Freyd, J.J.</strong> Deny, Attack, and Reverse Victim and Offender (DARVO). <em>Journal of Aggression, Maltreatment & Trauma</em>, 29(8).</div>
+      <a href="https://doi.org/10.1080/10926771.2019.1671260" target="_blank" class="kalla-buy">Läs →</a>
+    </div>
+    <div class="kalla-item">
+      <div class="kalla-year">2019</div>
+      <div class="kalla-ref"><strong>Stark, E. & Hester, M.</strong> Coercive Control: Update and Review. <em>Violence Against Women</em>, 25(1).</div>
+      <a href="https://svlas.org/wp-content/uploads/2021/11/coercive-control.pdf" target="_blank" class="kalla-buy">Läs →</a>
+    </div>
+    <div class="kalla-item">
+      <div class="kalla-year">2014</div>
+      <div class="kalla-ref"><strong>Van der Kolk, B.</strong> <em>The Body Keeps the Score.</em> Viking.</div>
+      <a href="https://www.adlibris.com/sv/bok/the-body-keeps-the-score-9780143127741" target="_blank" class="kalla-buy">Köp →</a>
+    </div>
+    <div class="kalla-item">
+      <div class="kalla-year">2008</div>
+      <div class="kalla-ref"><strong>Johnson, M.P.</strong> <em>A Typology of Domestic Violence.</em> Northeastern University Press.</div>
+      <a href="https://www.adlibris.com/sv/bok/a-typology-of-domestic-violence-9781555536923" target="_blank" class="kalla-buy">Köp →</a>
+    </div>
+    <div class="kalla-item">
+      <div class="kalla-year">2007</div>
+      <div class="kalla-ref"><strong>Stark, E.</strong> <em>Coercive Control.</em> Oxford University Press.</div>
+      <a href="https://global.oup.com/academic/product/coercive-control-9780195384048" target="_blank" class="kalla-buy">Köp →</a>
+    </div>
+    <div class="kalla-item">
+      <div class="kalla-year">1998</div>
+      <div class="kalla-ref"><strong>Garb, H.N.</strong> <em>Studying the Clinician: Judgment Research and Psychological Assessment.</em> APA.</div>
+      <span class="kalla-buy" style="color:var(--detail);border-color:var(--detail);cursor:default;">Akademisk</span>
+    </div>
+    <div class="kalla-item">
+      <div class="kalla-year">1995</div>
+      <div class="kalla-ref"><strong>Johnson, M.P.</strong> Patriarchal terrorism and common couple violence. <em>Journal of Marriage and the Family</em>, 57(2).</div>
+      <span class="kalla-buy" style="color:var(--detail);border-color:var(--detail);cursor:default;">Akademisk</span>
+    </div>
+    <div class="kalla-item">
+      <div class="kalla-year">1992</div>
+      <div class="kalla-ref"><strong>Herman, J.</strong> <em>Trauma and Recovery.</em> Basic Books.</div>
+      <a href="https://www.adlibris.com/sv/bok/trauma-and-recovery-9780465087310" target="_blank" class="kalla-buy">Köp →</a>
+    </div>
   </div>
-  <div class="kalla-item">
-   <div class="kalla-year">2024</div>
-   <div class="kalla-ref"><strong>Stark, E.</strong> <em>Children of Coercive Control.</em> Oxford University Press.</div>
-   <a href="https://global.oup.com/academic/product/children-of-coercive-control-9780197587096" target="_blank" class="kalla-buy">Köp →</a>
-  </div>
-  <div class="kalla-item">
-   <div class="kalla-year">2024</div>
-   <div class="kalla-ref"><strong>Xyrakis, N. m.fl.</strong> Interparental Coercive Control and Child and Family Outcomes: A Systematic Review. <em>Trauma, Violence, & Abuse</em>, 25(1).</div>
-   <a href="https://doi.org/10.1177/15248380221139243" target="_blank" class="kalla-buy">Läs →</a>
-  </div>
-  <div class="kalla-item">
-   <div class="kalla-year">2022</div>
-   <div class="kalla-ref"><strong>Allmänna Barnhuset.</strong> <em>Våld mot barn 2022 — en nationell kartläggning.</em></div>
-   <a href="https://www.allmannabarnhuset.se" target="_blank" class="kalla-buy">Läs →</a>
-  </div>
-  <div class="kalla-item">
-   <div class="kalla-year">2022</div>
-   <div class="kalla-ref"><strong>Sackett, P.R., Zhang, C., Berry, C.M. & Lievens, F.</strong> Revisiting meta-analytic estimates of validity in personnel selection. <em>Journal of Applied Psychology</em>, 107(9), 1514–1541.</div>
-   <span class="kalla-buy" style="color:var(--detail);border-color:var(--detail);cursor:default">Akademisk</span>
-  </div>
-  <div class="kalla-item">
-   <div class="kalla-year">2021</div>
-   <div class="kalla-ref"><strong>Kahneman, D., Sibony, O. & Sunstein, C.R.</strong> <em>Noise: A Flaw in Human Judgment.</em> Little, Brown Spark.</div>
-   <a href="https://www.adlibris.com/sv/bok/noise-9780316451406" target="_blank" class="kalla-buy">Köp →</a>
-  </div>
-  <div class="kalla-item">
-   <div class="kalla-year">2020</div>
-   <div class="kalla-ref"><strong>Harsey, S. & Freyd, J.J.</strong> Deny, Attack, and Reverse Victim and Offender (DARVO). <em>Journal of Aggression, Maltreatment & Trauma</em>, 29(8), 897–916.</div>
-   <a href="https://doi.org/10.1080/10926771.2019.1671260" target="_blank" class="kalla-buy">Läs →</a>
-  </div>
-  <div class="kalla-item">
-   <div class="kalla-year">2018</div>
-   <div class="kalla-ref"><strong>Byrman, G. & Skoglund, A.</strong> <em>Kvinnor och män i domar.</em> Linnéuniversitetet.</div>
-   <span class="kalla-buy" style="color:var(--detail);border-color:var(--detail);cursor:default">Rapport</span>
-  </div>
-  <div class="kalla-item">
-   <div class="kalla-year">2016</div>
-   <div class="kalla-ref"><strong>Allmänna Barnhuset.</strong> <em>Våld mot barn 2016 — en nationell kartläggning.</em></div>
-   <a href="https://www.allmannabarnhuset.se" target="_blank" class="kalla-buy">Läs →</a>
-  </div>
-  <div class="kalla-item">
-   <div class="kalla-year">2011</div>
-   <div class="kalla-ref"><strong>Kahneman, D.</strong> <em>Thinking, Fast and Slow.</em> Farrar, Straus and Giroux.</div>
-   <a href="https://www.adlibris.com/sv/bok/thinking-fast-and-slow-9780141033570" target="_blank" class="kalla-buy">Köp →</a>
-  </div>
-  <div class="kalla-item">
-   <div class="kalla-year">2007</div>
-   <div class="kalla-ref"><strong>Stark, E.</strong> <em>Coercive Control: How Men Entrap Women in Personal Life.</em> Oxford University Press.</div>
-   <a href="https://www.bokus.com/bok/9780195384048/coercive-control/" target="_blank" class="kalla-buy">Köp →</a>
-  </div>
-  <div class="kalla-item">
-   <div class="kalla-year">1998</div>
-   <div class="kalla-ref"><strong>Garb, H.N.</strong> <em>Studying the Clinician: Judgment Research and Psychological Assessment.</em> American Psychological Association.</div>
-   <span class="kalla-buy" style="color:var(--detail);border-color:var(--detail);cursor:default">Akademisk</span>
-  </div>
-  <div class="kalla-item">
-   <div class="kalla-year">1995</div>
-   <div class="kalla-ref"><strong>Johnson, M.P.</strong> Patriarchal terrorism and common couple violence. <em>Journal of Marriage and the Family</em>, 57(2), 283–294.</div>
-   <span class="kalla-buy" style="color:var(--detail);border-color:var(--detail);cursor:default">Akademisk</span>
-  </div>
-  <div class="kalla-item">
-   <div class="kalla-year">1994</div>
-   <div class="kalla-ref"><strong>Johnston, J.R.</strong> High-conflict divorce. <em>The Future of Children</em>, 4(1), 165–182.</div>
-   <a href="https://doi.org/10.2307/1602483" target="_blank" class="kalla-buy">Läs →</a>
-  </div>
-  <div class="kalla-item">
-   <div class="kalla-year">1994</div>
-   <div class="kalla-ref"><strong>Mossman, D.</strong> Assessing predictions of violence. <em>Journal of Consulting and Clinical Psychology</em>, 62(4), 783–792.</div>
-   <span class="kalla-buy" style="color:var(--detail);border-color:var(--detail);cursor:default">Akademisk</span>
-  </div>
-  <div class="kalla-item">
-   <div class="kalla-year">1992</div>
-   <div class="kalla-ref"><strong>Herman, J.</strong> <em>Trauma and Recovery.</em> Basic Books.</div>
-   <a href="https://www.bokus.com/bok/9781541602953/trauma-and-recovery/" target="_blank" class="kalla-buy">Köp →</a>
-  </div>
-
- </div>
 </section>
 
+<hr class="div">
+
+<!-- SAMARBETEN -->
+<section class="partners-section" id="partners">
+  <div class="section-tag">Nätverk</div>
+  <div class="section-title">Vi bygger tillsammans.</div>
+  <p class="section-intro">Bakom konflikten konkurrerar inte med någon — vi samverkar med alla som arbetar för barnets bästa.</p>
+  <div class="partners-grid">
+    <div class="partner-card">
+      <div class="partner-name">Kvinnojourer och brottsofferjourer</div>
+      <p class="partner-body">Vi delar kunskapsbas och vill bidra till att yrkesverksamma som möter utsatta har bättre verktyg att förstå vad de ser.</p>
+    </div>
+    <div class="partner-card">
+      <div class="partner-name">Socialtjänst och familjerätt</div>
+      <p class="partner-body">SIRA(M) är utformat för att passa in i befintliga utredningsprocesser — inte ersätta dem, utan stärka dem.</p>
+    </div>
+    <div class="partner-card">
+      <div class="partner-name">Akademi och forskning</div>
+      <p class="partner-body">Vi välkomnar samarbete med forskare och institutioner som vill bidra till evidensbaserad metodutveckling inom området.</p>
+    </div>
+  </div>
+</section>
 
 <hr class="div">
 
-<!-- VARFÖR COMMUNITY -->
-<div style="background:var(--bg-soft); padding:100px 60px;">
-<div style="max-width:1200px; margin:0 auto;">
- <div style="display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center;">
-  <div>
-   <div class="section-tag">Varför vi gör detta</div>
-   <div class="section-title">Ett gemensamt språk<br>över myndighetsgränserna.</div>
-   <p style="font-size:17px; color:var(--mid); line-height:1.75; font-weight:300; margin-top:16px; margin-bottom:28px">
-    Varje myndighet ser sin del av barnet. BUP ser ångesten. Skolan ser frånvaron. Socialtjänsten ser konflikten. Familjerätten ser tvisten. Ingen ser helheten.
-   </p>
-   <p style="font-size:17px; color:var(--mid); line-height:1.75; font-weight:300; margin-bottom:28px">
-    Den kontrollerande föräldern rör sig fritt mellan alla dessa arenor — och utnyttjar fragmenteringen. Varje myndighet bedömer sin del och hittar ingenting alarmerande. Tillsammans skulle de ha sett ett mönster.
-   </p>
-   <p style="font-size:17px; color:var(--mid); line-height:1.75; font-weight:300; margin-bottom:40px">
-    Ett gemensamt språk, en gemensam metodologi och ett forum där yrkesverksamma från olika myndigheter kan dela kunskap — det är det enda som kan motverka en fragmentering som aktivt gynnar den som utövar kontroll.
-   </p>
-   <a href="#medlem" class="btn btn-outline">Anmäl intresse</a>
+<!-- INTRESSEANMÄLAN -->
+<div class="member-section" id="medlem">
+  <div class="member-inner">
+    <div>
+      <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:16px;">Kunskapsplattform</div>
+      <div class="member-title">Bli en av de <em>första</em> att få framtida material.</div>
+      <p style="font-size:14px;color:rgba(255,255,255,0.7);line-height:1.7;margin-top:12px;">Vi bygger en kunskapsplattform för yrkesverksamma som arbetar med barn i komplexa situationer. Anmäl intresse nu — kostnadsfritt.</p>
+      <ul class="member-list">
+        <li>Nya guider i SIRA(M)-serien</li>
+        <li>Fördjupningar inom psykologisk kontroll</li>
+        <li>Uppdateringar från bokprojektet</li>
+        <li>Inbjudan till workshops och metodträningar</li>
+        <li>Tillgång till community för yrkesverksamma</li>
+      </ul>
+    </div>
+    <div class="mem-form" id="mem-form-wrap">
+      <h3>Anmäl intresse</h3>
+      <p>Vi hör av oss när nytt material är redo.</p>
+      <input type="text" id="mem-name" placeholder="Ditt namn">
+      <input type="email" id="mem-email" placeholder="Din e-post">
+      <select id="mem-role">
+        <option value="">Välj yrkesroll</option>
+        <option>Socialsekreterare</option>
+        <option>Familjerättshandläggare</option>
+        <option>Familjebehandlare</option>
+        <option>Skolkurator / Elevhälsa</option>
+        <option>BUP</option>
+        <option>Chef / Ledning</option>
+        <option>Annan</option>
+      </select>
+      <p style="font-size:12px;color:rgba(255,255,255,0.4);margin-bottom:12px;">Kostnadsfritt tills vidare. Inga förpliktelser.</p>
+      <button onclick="submitMember()" class="btn btn-peach" style="width:100%;">Anmäl intresse</button>
+    </div>
   </div>
-
-  <div style="display:flex; flex-direction:column; gap:16px;">
-   <div style="background:var(--warm-white); border:1px solid var(--detail); padding:28px 32px; border-left:5px solid var(--peach);">
-    <div style="font-size:13px; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:var(--mid-accent); margin-bottom:8px;">Socialtjänst</div>
-    <div style="font-size:15px; color:var(--mid); font-weight:300">Ser konflikten och bedömer föräldrarnas förmåga var för sig.</div>
-   </div>
-   <div style="background:var(--warm-white); border:1px solid var(--detail); padding:28px 32px; border-left:5px solid var(--blue);">
-    <div style="font-size:13px; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:var(--mid-accent); margin-bottom:8px;">BUP</div>
-    <div style="font-size:15px; color:var(--mid); font-weight:300">Ser ångesten och depressionssymtomen — utan kontext om hemmet.</div>
-   </div>
-   <div style="background:var(--warm-white); border:1px solid var(--detail); padding:28px 32px; border-left:5px solid var(--rose);">
-    <div style="font-size:13px; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:var(--mid-accent); margin-bottom:8px;">Skola & elevhälsa</div>
-    <div style="font-size:15px; color:var(--mid); font-weight:300">Ser frånvaron och beteendeförändringarna — men saknar helhetsbilden.</div>
-   </div>
-   <div style="background:var(--warm-white); border:1px solid var(--detail); padding:28px 32px; border-left:5px solid var(--mid-accent);">
-    <div style="font-size:13px; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:var(--mid-accent); margin-bottom:8px;">Familjerätt</div>
-    <div style="font-size:15px; color:var(--mid); font-weight:300">Ser tvisten — och hör två trovärdiga berättelser om samma barn.</div>
-   </div>
-   <div style="background:var(--green); padding:28px 32px;">
-    <div style="font-size:13px; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:var(--light-green); margin-bottom:8px;">Tillsammans</div>
-    <div style="font-size:15px; color:var(--warm-white); font-weight:300">Ser de ett mönster. Det är vad Bakom konflikten är byggt för.</div>
-   </div>
-  </div>
- </div>
-</div>
-</div>
-
-
-
-<!-- INTERNATIONELLT PERSPEKTIV -->
-<div style="background:var(--warm-white); padding:100px 60px;">
-<div style="max-width:1200px; margin:0 auto;">
- <div class="section-tag">Internationellt perspektiv</div>
- <div class="section-title">Sverige ansluter sig.<br>Nu behöver vi rusta oss.</div>
- <p style="font-size:17px; color:var(--mid); line-height:1.75; font-weight:300; max-width:720px; margin-top:16px; margin-bottom:60px">
-  Psykologiskt våld och kontrollerande beteende kriminaliseras i Sverige från juni 2026. Vi ansluter oss till en växande global rörelse — men lagstiftning utan metodinfrastruktur riskerar att bli en skrivbordsprodukt.
- </p>
-
- <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:var(--detail); margin-bottom:60px;">
-  <div style="background:var(--warm-white); padding:32px; border-top:4px solid var(--green);">
-   <div style="font-family:'Playfair Display',serif; font-size:15px; font-weight:700; color:var(--dark); margin-bottom:6px;">England & Wales</div>
-   <div style="font-size:26px; font-weight:700; font-family:'Playfair Display',serif; color:var(--green); margin-bottom:8px;">2015</div>
-   <div style="font-size:13px; color:var(--mid); line-height:1.6; font-weight:300">Först i världen att kriminalisera coercive control. Serious Crime Act 2015 — upp till 5 år i fängelse.</div>
-  </div>
-  <div style="background:var(--warm-white); padding:32px; border-top:4px solid var(--blue);">
-   <div style="font-family:'Playfair Display',serif; font-size:15px; font-weight:700; color:var(--dark); margin-bottom:6px;">Skottland & Irland</div>
-   <div style="font-size:26px; font-weight:700; font-family:'Playfair Display',serif; color:var(--blue); margin-bottom:8px;">2018–19</div>
-   <div style="font-size:13px; color:var(--mid); line-height:1.6; font-weight:300">Skottland tränade polisen specifikt innan lagen trädde i kraft. Resultat: 96% av registrerade fall ledde till åtal första året.</div>
-  </div>
-  <div style="background:var(--warm-white); padding:32px; border-top:4px solid var(--peach);">
-   <div style="font-family:'Playfair Display',serif; font-size:15px; font-weight:700; color:var(--dark); margin-bottom:6px;">Australien & Sydafrika</div>
-   <div style="font-size:26px; font-weight:700; font-family:'Playfair Display',serif; color:var(--peach); margin-bottom:8px;">2022–24</div>
-   <div style="font-size:13px; color:var(--mid); line-height:1.6; font-weight:300">New South Wales kriminaliserade coercive control 2024. Sydafrika har etablerat specialdomstolar och krav på polishänvisning till stödinsatser.</div>
-  </div>
-  <div style="background:var(--warm-white); padding:32px; border-top:4px solid var(--mid-accent);">
-   <div style="font-family:'Playfair Display',serif; font-size:15px; font-weight:700; color:var(--dark); margin-bottom:6px;">Frankrike</div>
-   <div style="font-size:26px; font-weight:700; font-family:'Playfair Display',serif; color:var(--mid-accent); margin-bottom:8px;">Unikt</div>
-   <div style="font-size:13px; color:var(--mid); line-height:1.6; font-weight:300">Det enda landet med lagstiftning mot psykologisk kontroll som täcker både nära relationer och sekter och grupper som använder mental manipulation.</div>
-  </div>
-  <div style="background:var(--warm-white); padding:32px; border-top:4px solid var(--rose);">
-   <div style="font-family:'Playfair Display',serif; font-size:15px; font-weight:700; color:var(--dark); margin-bottom:6px;">Kanada</div>
-   <div style="font-size:26px; font-weight:700; font-family:'Playfair Display',serif; color:var(--rose); margin-bottom:8px;">2026</div>
-   <div style="font-size:13px; color:var(--mid); line-height:1.6; font-weight:300">Lagstiftning under antagande med upp till 10 år i fängelse. Forskning visar att coercive control är den starkaste riskmarkören för dödligt partnervåld.</div>
-  </div>
-  <div style="background:var(--dark); padding:32px; border-top:4px solid var(--peach);">
-   <div style="font-family:'Playfair Display',serif; font-size:15px; font-weight:700; color:var(--warm-white); margin-bottom:6px;">Sverige</div>
-   <div style="font-size:26px; font-weight:700; font-family:'Playfair Display',serif; color:var(--peach); margin-bottom:8px;">Juni 2026</div>
-   <div style="font-size:13px; color:var(--detail); line-height:1.6; font-weight:300">Prop. 2025/26:138. Upprepat psykologiskt våld och kontrollerande beteende kriminaliseras. Frågan är om vi har metodinfrastrukturen för att tillämpa den.</div>
-  </div>
- </div>
-
- <div style="background:var(--bg-soft); padding:40px 48px; border-left:6px solid var(--green);">
-  <div style="font-family:'Playfair Display',serif; font-size:22px; color:var(--dark); margin-bottom:14px; font-style:italic">"Skottland investerade specifikt i metodutbildning och polisträning innan lagen trädde i kraft. Det är därför 96% av fallen ledde till åtal — jämfört med 13% i England och Wales."</div>
-  <div style="font-size:13px; color:var(--mid-accent); letter-spacing:0.08em; text-transform:uppercase">Lärdomen för Sverige: lagstiftning utan metodstöd riskerar att bli en skrivbordsprodukt.</div>
- </div>
-</div>
-</div>
-
-<hr class="div">
-
-<!-- MANIFEST -->
-<div style="background:var(--dark); padding:100px 60px;" id="manifest">
-<div style="max-width:900px; margin:0 auto;">
- <div class="section-tag" style="color:var(--mid-accent)">Varför vi gör detta</div>
- <div style="font-family:'Playfair Display',serif; font-size:52px; font-weight:700; color:var(--warm-white); line-height:1.08; margin-bottom:48px;">Varje dag fattas<br>beslut som avgör<br>ett barns <em style="color:var(--peach)">framtid.</em></div>
-
- <div style="display:flex; flex-direction:column; gap:28px; margin-bottom:60px;">
-  <p style="font-size:18px; color:var(--detail); line-height:1.8; font-weight:300">
-   Av en socialsekreterare med för många ärenden. Av en familjerättshandläggare som hör två trovärdiga berättelser. Av en lärare som ser att något inte stämmer men inte vet vad. Av en kurator på BUP som saknar kontexten.
-  </p>
-  <p style="font-size:18px; color:var(--detail); line-height:1.8; font-weight:300">
-   De ser var sin del av barnet. Ingen ser helheten. Och den kontrollerande föräldern rör sig fritt mellan alla dessa arenor — och utnyttjar fragmenteringen med precision.
-  </p>
-  <p style="font-size:18px; color:var(--detail); line-height:1.8; font-weight:300">
-   Sverige befinner sig vid en historisk vändpunkt. En lag kriminaliserar psykologiskt våld från juni 2026. Vi ansluter oss till länder som England, Skottland, Irland, Australien, Sydafrika och Frankrike. Men många röster höjs med en befogad oro: att lagen riskerar att bli en skrivbordsprodukt. Att vi stiftar lagar vi inte har förutsättningar att tillämpa.
-  </p>
-  <p style="font-size:18px; color:var(--detail); line-height:1.8; font-weight:300">
-   Vi tror att nyckeln är att bygga bryggor.
-  </p>
- </div>
-
- <div style="display:flex; flex-direction:column; gap:2px; background:rgba(255,255,255,0.06); margin-bottom:60px;">
-  <div style="padding:32px 40px; background:rgba(255,255,255,0.03); border-left:4px solid var(--peach);">
-   <div style="font-family:'Playfair Display',serif; font-size:20px; color:var(--warm-white); margin-bottom:10px;">Mellan privat och offentlig sektor</div>
-   <div style="font-size:15px; color:var(--detail); line-height:1.7; font-weight:300">Näringsliv och välfärd delar ett ansvar för barnets framtid som ännu inte tagits på allvar. Det privata har metodiken, feedbacklooparna och resurserna. Det offentliga har uppdraget, mandatet och kunskapen om vad som faktiskt behövs.</div>
-  </div>
-  <div style="padding:32px 40px; background:rgba(255,255,255,0.03); border-left:4px solid var(--blue);">
-   <div style="font-family:'Playfair Display',serif; font-size:20px; color:var(--warm-white); margin-bottom:10px;">Mellan forskning och verksamhet</div>
-   <div style="font-size:15px; color:var(--detail); line-height:1.7; font-weight:300">Insikter om psykologisk kontroll, traumarespons och beslutspsykologi når fortfarande sällan fram till de socialsekreterare och familjerättshandläggare som behöver dem mest.</div>
-  </div>
-  <div style="padding:32px 40px; background:rgba(255,255,255,0.03); border-left:4px solid var(--green);">
-   <div style="font-family:'Playfair Display',serif; font-size:20px; color:var(--warm-white); margin-bottom:10px;">Mellan barn och lagstiftning</div>
-   <div style="font-size:15px; color:var(--detail); line-height:1.7; font-weight:300">Barnkonventionen slår fast att barn har rätt till skydd, till en röst och till beslut i deras bästa intresse. Rätten på papper är inte rätten i praktiken — utan vuxna som kan se vad barnet inte kan sätta ord på.</div>
-  </div>
- </div>
-
- <div style="border-top:1px solid rgba(255,255,255,0.1); padding-top:48px;">
-  
- <p style="font-family:'Playfair Display',serif; font-size:26px; color:var(--warm-white); line-height:1.4; margin-bottom:24px; font-style:italic">
-   "Det svåraste barnet kan göra — är att berätta. Vi bygger ett system som gör det möjligt för fler vuxna att se vad barnet inte kan sätta ord på."
-  </p>
-  <div style="font-size:14px; color:var(--mid-accent); letter-spacing:0.1em; text-transform:uppercase;">Karolina Hedenström · Grundare, Bakom konflikten</div>
- </div>
-</div>
-</div>
-
-
-<!-- MEMBERSHIP -->
-<div class="membership" id="medlem">
- <div class="membership-inner">
-  <div>
-   <h2>Bli en av de <em>första</em> att få framtida material.</h2>
-   <p>Vi bygger en kunskapsplattform för yrkesverksamma som arbetar med barn i komplexa situationer. Anmäl intresse nu — kostnadsfritt.</p>
-   <ul class="benefits">
-    
-    <li>Nya guider i SIRA(M)-serien</li>
-    <li>Fördjupningar inom psykologisk kontroll</li>
-    <li>Uppdateringar från bokprojektet</li>
-    <li>Inbjudan till workshops och metodträningar</li>
-    <li>Tillgång till community för yrkesverksamma</li>
-   </ul>
-   <p style="font-size:13px">Kostnadsfritt tills vidare. Inga förpliktelser.</p>
-  </div>
-  <div class="mem-form">
-   <h3>Anmäl intresse</h3>
-   <p>Vi hör av oss när nytt material är redo.</p>
-   <div class="form-group">
-    <label>Namn</label>
-    <input class="green-input" type="text" placeholder="Ditt namn" id="mem-name">
-   </div>
-   <div class="form-group">
-    <label>E-post</label>
-    <input class="green-input" type="email" placeholder="din@epost.se" id="mem-email">
-   </div>
-   <div class="form-group">
-    <label>Yrkesroll</label>
-    <select class="green-input" id="mem-role">
-     <option value="">Välj yrkesroll</option>
-     <option>Socialsekreterare</option>
-     <option>Familjerättshandläggare</option>
-     <option>Familjebehandlare</option>
-     <option>Psykolog / Kurator BUP</option>
-     <option>Elevhälsopersonal</option>
-     <option>Jurist / Domare</option>
-     <option>Utbildare / Handledare</option>
-     <option>Annat</option>
-    </select>
-   </div>
-   <button class="btn btn-peach" style="width:100%;margin-top:8px" onclick="submitMember()">Anmäl intresse</button>
-   <p style="font-size:11px;color:rgba(255,255,255,0.3);text-align:center;margin-top:14px;font-style:italic">Vi delar aldrig dina uppgifter med tredje part.</p>
-  </div>
- </div>
-</div>
-
-
-<hr class="div">
-
-<!-- PARTNERS & SAMARBETEN -->
-<div id="partners"></div>
-
-<div style="background:var(--bg-soft); padding:80px 60px;">
-<div style="max-width:1200px; margin:0 auto;">
- <div class="section-tag">Samarbeten</div>
- <div class="section-title" style="font-size:32px; margin-bottom:14px;">Vi bygger tillsammans.</div>
- <p style="font-size:16px; color:var(--mid); font-weight:300; max-width:600px; margin-bottom:48px; line-height:1.7">Barnbryggan konkurrerar inte med någon — vi samverkar med alla som arbetar för barnets bästa. Här presenterar vi organisationer och verktyg vi ser som naturliga partners.</p>
-
- <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-bottom:40px;">
-
-  <!-- PARTNER 1: Allie -->
-  
-  <div style="background:var(--warm-white); border:1px solid var(--detail); padding:32px; display:flex; flex-direction:column; gap:12px;">
-   
-   <div style="font-family:'Playfair Display',serif; font-size:20px; font-weight:700; color:var(--dark);">Allie</div>
-   <div style="font-size:14px; color:var(--mid); line-height:1.6; font-weight:300; flex:1">Digital samordningsplattform som hjälper barn, familjer och professioner att hålla ihop insatser och ansvar när vägen framåt är klarlagd.</div>
-   <a href="https://www.allie.nu/" target="_blank" style="font-size:13px; color:var(--green); font-weight:500; text-decoration:none; border-bottom:1px solid var(--green); width:fit-content;">Besök allie.nu →</a>
-  </div>
-
-  <!-- PARTNER 2: Platshållare -->
-  
-  <div style="background:var(--warm-white); border:1px solid var(--detail); border-style:dashed; padding:32px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:12px; min-height:180px;">
-   <div style="font-size:32px; color:var(--detail);">+</div>
-   <div style="font-size:14px; color:var(--detail); text-align:center; font-style:italic;">Kommande samarbetspartner</div>
-  </div>
-
-  <!-- PARTNER 3: Platshållare -->
-  
-  <div style="background:var(--warm-white); border:1px solid var(--detail); border-style:dashed; padding:32px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:12px; min-height:180px;">
-   <div style="font-size:32px; color:var(--detail);">+</div>
-   <div style="font-size:14px; color:var(--detail); text-align:center; font-style:italic;">Kommande samarbetspartner</div>
-  </div>
-
- </div>
- <p style="font-size:14px; color:var(--mid-accent); font-style:italic;">Vill ni samarbeta med Bakom konflikten? Hör av er — vi är alltid intresserade av att bygga bryggor.</p>
-</div>
 </div>
 
 <hr class="div">
 
 <!-- KONTAKT -->
-<div id="kontakt"></div>
-
-<div style="background:var(--warm-white); padding:80px 60px;">
-<div style="max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:start;">
- <div>
-  <div class="section-tag">Kontakt</div>
-  <div class="section-title" style="font-size:36px; margin-bottom:16px;">Hör av dig.</div>
-  
-  <p style="font-size:16px; color:var(--mid); font-weight:300; line-height:1.7; margin-bottom:28px">Vi svarar på frågor om metodstödet, SIRA(M)-guiden, samarbeten och föreläsningar. Vi välkomnar också kontakt från organisationer som vill pilottesta metodiken.</p>
-  
-  <div style="display:flex; flex-direction:column; gap:16px;">
-   
-   <div style="display:flex; align-items:center; gap:16px; padding:20px 24px; background:var(--bg-soft); border-left:4px solid var(--green);">
+<section class="contact-section" id="kontakt">
+  <div class="contact-inner">
     <div>
-     <div style="font-size:12px; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:var(--mid-accent); margin-bottom:4px;">E-post</div>
-     <a href="mailto:sjogren.hedenstrom@gmail.com" style="font-size:16px; color:var(--dark); font-weight:500; text-decoration:none;">sjogren.hedenstrom@gmail.com</a>
+      <div class="section-tag">Kontakt</div>
+      <div class="section-title">Hör av dig.</div>
+      <p style="font-size:15px;color:var(--mid);line-height:1.7;margin-bottom:24px;font-weight:300;">Vi svarar på frågor om metodstöd, samarbete och bokprojektet. Skriv till oss direkt på <a href="mailto:sjogren.hedenstrom@gmail.com" style="color:var(--green);">sjogren.hedenstrom@gmail.com</a> eller använd formuläret.</p>
+      <p style="font-size:14px;color:var(--light);">Följ oss på Instagram: <a href="https://www.instagram.com/bakom_konflikten" target="_blank" style="color:var(--dark);text-decoration:underline;">@bakom_konflikten</a></p>
     </div>
-   </div>
-   
-   <div style="display:flex; align-items:center; gap:16px; padding:20px 24px; background:var(--bg-soft); border-left:4px solid var(--peach);">
+    <div class="contact-form">
+      <input type="text" id="contact-name" placeholder="Ditt namn">
+      <input type="email" id="contact-email" placeholder="Din e-post">
+      <select id="contact-subject">
+        <option value="">Ämne</option>
+        <option>Metodstöd och SIRA(M)</option>
+        <option>Samarbete</option>
+        <option>Bokprojektet</option>
+        <option>Workshop / Utbildning</option>
+        <option>Annat</option>
+      </select>
+      <textarea id="contact-message" rows="4" placeholder="Beskriv vad du vill prata om..."></textarea>
+      <button onclick="sendContact()" class="btn btn-dark" style="width:100%;border:none;cursor:pointer;">Skicka meddelande</button>
+      <div id="contact-status"></div>
+    </div>
+  </div>
+</section>
+
+</div><!-- END section-professional -->
+
+<!-- ==================== UTSATT ==================== -->
+<div id="section-utsatt" style="display:none;">
+
+<!-- HERO -->
+<div class="utsatt-hero">
+  <div class="utsatt-hero-inner">
+    <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--light);margin-bottom:16px;">Kunskapsportal · Psykologisk kontroll · Egenkartläggning</div>
+    <h1 style="font-family:'Playfair Display',serif;font-size:56px;font-weight:700;color:var(--dark);line-height:1.1;margin-bottom:20px;">Utsätts du för psykiskt våld?<br><em style="color:var(--rose);">Lär dig se mönstret och skapa en struktur att utgå ifrån.</em></h1>
+    <p>Har du funderat på varför konflikten med din partner eller ex-partner aldrig riktigt tar slut? Varför den eskalerar, lägger sig — och eskalerar igen?</p>
+    <p style="font-size:17px;color:var(--mid);line-height:1.8;margin-bottom:12px;font-weight:300;">Kanske undrar du om det du upplever är psykologisk kontroll. Kanske är du inte ens säker på vad det innebär.</p>
+    <p style="font-size:17px;color:var(--mid);line-height:1.8;margin-bottom:32px;font-weight:300;">Här finns mer information om psykologisk kontroll och vad det gör med dig och dina barn. Du kan göra en kartläggning för dig själv — den tar ungefär fem minuter och ger dig en bild av mönstret i din situation. Dina svar sparas inte och du är helt anonym. Du kan själv kopiera sammanfattningen och spara den i valfritt format.</p>
+    <div class="utsatt-btns">
+      <button onclick="document.getElementById('digital-kartlaggning').scrollIntoView({behavior:'smooth'});setTimeout(function(){var b=document.getElementById('atm-start');if(b)b.click();},600);" class="btn btn-dark" style="border:none;cursor:pointer;">Gör kartläggningen</button>
+      <button onclick="document.getElementById('utsatt-haftet').scrollIntoView({behavior:'smooth'});" class="btn btn-outline" style="cursor:pointer;">Ladda ner häftet</button>
+    </div>
+  </div>
+</div>
+
+<!-- KARTLÄGGNING -->
+<div class="kartlaggning-section" id="digital-kartlaggning">
+  <div class="kartlaggning-inner">
+    <div style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--light);margin-bottom:16px;">Egenkartläggning</div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:var(--dark);margin-bottom:12px;line-height:1.1;">Att se mönstret.</h2>
+    <p style="font-size:15px;color:var(--mid);line-height:1.7;margin-bottom:8px;">Svara på 14 frågor i fem dimensioner. Du får en visuell profil direkt — och möjlighet att sammanställa ett strukturerat underlag för myndighetsmöten baserat på dina svar. Detta kan hjälpa dig att hålla fokus på det du vill framföra.</p>
+    <p style="font-size:13px;color:var(--light);line-height:1.7;margin-bottom:28px;">Dina svar sparas inte och registreras inte. Du kan göra om kartläggningen obegränsat antal gånger. Kartläggningen är forskningsbaserad och kontrollerad för bias. Den är inte ett diagnostiskt instrument och ersätter inte professionellt stöd.</p>
+    <div id="atm-root"></div>
+  </div>
+</div>
+
+<!-- HÄFTET -->
+<div id="utsatt-haftet" style="background:var(--dark);padding:80px 60px;">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;">
     <div>
-     <div style="font-size:12px; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:var(--mid-accent); margin-bottom:4px;">Instagram</div>
-     <a href="https://www.instagram.com/bakom_konflikten" target="_blank" style="font-size:16px; color:var(--dark); font-weight:500; text-decoration:none;">@bakom_konflikten</a>
+      <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--light);margin-bottom:24px;">Kunskapshäfte</div>
+      <div style="font-family:'Playfair Display',serif;font-size:38px;font-weight:700;color:var(--warm);margin-bottom:12px;line-height:1.2;">När ingen ser<br>vad du ser.</div>
+      <p style="font-size:15px;color:rgba(255,255,255,0.6);line-height:1.8;margin-bottom:28px;font-weight:300;">Ett kunskapshäfte om psykologisk kontroll — vad det är, varför det är så svårt att se och vad det gör med dig och dina barn. Med forskning och igenkännbara anonyma citat. Det här häftet kan läsas fristående eller som ett komplement till egenkartläggningen Att se mönstret.</p>
+      <a href="/haftet_v2.pdf" download class="btn btn-peach">Ladda ner häftet gratis</a>
     </div>
-   </div>
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <div style="background:rgba(255,255,255,0.05);border-left:3px solid var(--peach);padding:18px 22px;font-size:14px;color:rgba(255,255,255,0.7);line-height:1.7;">Vad är psykologisk kontroll och vad skiljer det från vanlig konflikt?</div>
+      <div style="background:rgba(255,255,255,0.05);border-left:3px solid var(--blue);padding:18px 22px;font-size:14px;color:rgba(255,255,255,0.7);line-height:1.7;">Varför är det så svårt att se — för dig själv och för systemet?</div>
+      <div style="background:rgba(255,255,255,0.05);border-left:3px solid var(--green);padding:18px 22px;font-size:14px;color:rgba(255,255,255,0.7);line-height:1.7;">Vad gör det med dig, din kropp och dina barn?</div>
+      <div style="background:rgba(255,255,255,0.05);border-left:3px solid var(--rose);padding:18px 22px;font-size:14px;color:rgba(255,255,255,0.7);line-height:1.7;">Hur möter du systemet — och vad kan göra det lättare?</div>
+    </div>
   </div>
- </div>
+</div>
 
- <!-- KONTAKTFORMULÄR -->
- <div style="background:var(--bg-soft); padding:40px;">
-  <h3 style="font-family:'Playfair Display',serif; font-size:24px; color:var(--dark); margin-bottom:8px;">Skicka ett meddelande</h3>
-  <p style="font-size:13px; color:var(--mid-accent); margin-bottom:28px;">Vi svarar inom 2–3 arbetsdagar.</p>
-  
-  
-  <div style="display:flex; flex-direction:column; gap:14px;">
-   <div>
-    <label style="display:block; font-size:11px; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:var(--mid-accent); margin-bottom:7px;">Namn</label>
-    <input id="contact-name" style="width:100%; padding:13px 15px; border:1px solid var(--detail); background:var(--warm-white); font-family:'DM Sans',sans-serif; font-size:14px; color:var(--dark); outline:none;" placeholder="Ditt namn">
-   </div>
-   <div>
-    <label style="display:block; font-size:11px; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:var(--mid-accent); margin-bottom:7px;">E-post</label>
-    <input id="contact-email" style="width:100%; padding:13px 15px; border:1px solid var(--detail); background:var(--warm-white); font-family:'DM Sans',sans-serif; font-size:14px; color:var(--dark); outline:none;" placeholder="din@epost.se">
-   </div>
-   <div>
-    <label style="display:block; font-size:11px; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:var(--mid-accent); margin-bottom:7px;">Ärende</label>
-    <select id="contact-subject" style="width:100%; padding:13px 15px; border:1px solid var(--detail); background:var(--warm-white); font-family:'DM Sans',sans-serif; font-size:14px; color:var(--dark); outline:none;">
-     <option value="">Välj ärende</option>
-     
-     <option>Fråga om SIRA(M)-guiden</option>
-     <option>Föreläsning eller workshop</option>
-     <option>Pilottestning av metodiken</option>
-     <option>Samarbete eller partnerskap</option>
-     <option>Media eller intervju</option>
-     <option>Annat</option>
-    </select>
-   </div>
-   <div>
-    <label style="display:block; font-size:11px; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:var(--mid-accent); margin-bottom:7px;">Meddelande</label>
-    <textarea id="contact-message" style="width:100%; padding:13px 15px; border:1px solid var(--detail); background:var(--warm-white); font-family:'DM Sans',sans-serif; font-size:14px; color:var(--dark); outline:none; min-height:100px; resize:vertical;" placeholder="Berätta gärna om din organisation och vad du vill prata om..."></textarea>
-   </div>
-   <button onclick="sendContact()" style="width:100%; background:var(--dark); color:var(--warm-white); padding:16px; font-family:'DM Sans',sans-serif; font-size:14px; font-weight:500; letter-spacing:0.08em; border:none; cursor:pointer; margin-top:4px;">Skicka meddelande</button>
+<!-- STÖD -->
+<div class="support-section">
+  <div class="support-inner">
+    <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--light);margin-bottom:16px;">Nästa steg</div>
+    <div style="font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:var(--dark);margin-bottom:16px;">Du är inte ensam.</div>
+    <p style="font-size:15px;color:var(--mid);line-height:1.7;max-width:680px;">Det du upplever har ett namn. Och det finns människor som ser det.</p>
+    <div class="support-grid">
+      <div class="support-card">
+        <div class="support-title">Kontakta en kvinnojour</div>
+        <p class="support-body">Kontakta en kvinnojour för att få hjälp att förstå din situation. Nationella kvinnojourslinjen: <strong><a href="tel:020505500">020-50 55 00</a></strong> — kostnadsfritt, dygnet runt. Hitta din lokala jour på <a href="https://roks.se/hitta-jour" target="_blank">roks.se</a> eller <a href="https://unizon.se/hitta-hjalp" target="_blank">unizon.se</a>.</p>
+      </div>
+      <div class="support-card">
+        <div class="support-title">Läs mer på Instagram</div>
+        <p class="support-body"><a href="https://www.instagram.com/bakom_konflikten" target="_blank" style="color:var(--dark);text-decoration:underline;">@bakom_konflikten</a> publicerar forskningsbaserat innehåll om psykologisk kontroll och vad det gör med barn och vuxna.</p>
+      </div>
+      <div class="support-card">
+        <div class="support-title">Hör av dig till oss</div>
+        <p class="support-body">Vi svarar på frågor och lyssnar. <a href="mailto:sjogren.hedenstrom@gmail.com">sjogren.hedenstrom@gmail.com</a></p>
+      </div>
+    </div>
   </div>
- </div>
-</div>
 </div>
 
+</div><!-- END section-utsatt -->
 
-</div>
 <!-- FOOTER -->
 <footer>
- 
- <div class="footer-logo">Bakom konflikten</div>
- 
- <div class="footer-copy">© 2025 Karolina Hedenström & Sarah Sjögren</div>
- <ul class="footer-links">
-  <li><a href="https://www.instagram.com/bakom_konflikten" target="_blank">@bakom_konflikten</a></li>
-  <li><a href="mailto:sjogren.hedenstrom@gmail.com">Kontakt</a></li>
- </ul>
+  <div class="footer-logo">Bakom konflikten</div>
+  <div class="footer-copy">© 2025 Karolina Hedenström & Sarah Sjögren</div>
+  <ul class="footer-links">
+    <li><a href="https://www.instagram.com/bakom_konflikten" target="_blank">@bakom_konflikten</a></li>
+    <li><a href="mailto:sjogren.hedenstrom@gmail.com">sjogren.hedenstrom@gmail.com</a></li>
+  </ul>
 </footer>
 
 <script>
-// ANIMATED COUNTERS
-function animateCounter(id, target, duration, prefix='', suffix='') {
- const el = document.getElementById(id);
- if (!el) return;
- const start = 0;
- const step = target / (duration / 16);
- let current = start;
- const timer = setInterval(() => {
-  current += step;
-  if (current >= target) {
-   current = target;
-   clearInterval(timer);
-  }
-  if (target >= 1000) {
-   el.textContent = prefix + Math.round(current).toLocaleString('sv-SE') + suffix;
+/* === TAB NAVIGATION === */
+function showTab(tab) {
+  var pro = document.getElementById('section-professional');
+  var utsatt = document.getElementById('section-utsatt');
+  var tabPro = document.getElementById('tab-pro');
+  var tabUtsatt = document.getElementById('tab-utsatt');
+  if (tab === 'professional') {
+    pro.style.display = 'block';
+    utsatt.style.display = 'none';
+    tabPro.classList.add('active');
+    tabUtsatt.classList.remove('active');
+    window.scrollTo(0, 0);
   } else {
-   el.textContent = prefix + Math.round(current) + suffix;
+    pro.style.display = 'none';
+    utsatt.style.display = 'block';
+    tabPro.classList.remove('active');
+    tabUtsatt.classList.add('active');
+    window.scrollTo(0, 0);
   }
- }, 16);
 }
 
-window.addEventListener('load', () => {
- setTimeout(() => {
-  animateCounter('c1', 47, 1500);
-  animateCounter('c2', 220, 1500);
-  animateCounter('c4', 12, 1200);
- }, 500);
-});
-
-// SCROLL FADE IN
-const observer = new IntersectionObserver((entries) => {
- entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.1 });
-document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-// POLLS
-const pollData = {
- poll1: { votes: [22, 18, 14, 31], labels: ['DARVO och rollbyte','Bekräftelsebias','Traumatiskt band','Ord mot ord-situationer'], voted: false },
- poll2: { votes: [38, 28, 22, 19], labels: ['Att barnet inte berättar','Att båda verkar trovärdiga','Tidsbrist och belastning','Brist på metodstöd'], voted: false }
-};
-
-function vote(pollId, idx) {
- const poll = pollData[pollId];
- const selected = document.querySelector(`input[name="${pollId === 'poll1' ? 'p1' : 'p2'}"]:checked`);
- if (!selected) { alert('Välj ett alternativ först.'); return; }
- const val = parseInt(selected.value);
- poll.votes[val]++;
- poll.voted = true;
- renderPollResults(pollId);
+function navTo(tab, sectionId) {
+  showTab(tab);
+  setTimeout(function() {
+    var el = document.getElementById(sectionId);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  }, 100);
+  return false;
 }
 
-function renderPollResults(pollId) {
- const poll = pollData[pollId];
- const total = poll.votes.reduce((a,b) => a+b, 0);
- const container = document.getElementById(pollId);
- container.innerHTML = poll.labels.map((label, i) => {
-  const pct = Math.round((poll.votes[i] / total) * 100);
-  return `<div style="margin-bottom:14px">
-   <div style="display:flex;justify-content:space-between;font-size:14px;color:var(--mid);margin-bottom:5px">
-    <span>${label}</span><span style="color:var(--green);font-weight:500">${pct}%</span>
-   </div>
-   <div class="poll-bar"><div class="poll-fill" style="width:${pct}%"></div></div>
-  </div>`;
- }).join('') + `<div class="poll-total">${total} röster totalt</div>`;
+/* === FORMS === */
+function sendContact() {
+  var name = document.getElementById('contact-name').value.trim();
+  var email = document.getElementById('contact-email').value.trim();
+  var subject = document.getElementById('contact-subject').value;
+  var message = document.getElementById('contact-message').value.trim();
+  if (!name || !email || !message) { alert('Fyll i namn, e-post och meddelande.'); return; }
+  var link = 'mailto:sjogren.hedenstrom@gmail.com?subject=' + encodeURIComponent('Bakom konflikten: ' + (subject || 'Kontakt')) + '&body=' + encodeURIComponent('Från: ' + name + '\nE-post: ' + email + '\n\n' + message);
+  window.open(link, '_blank');
+  var el = document.getElementById('contact-status');
+  el.innerHTML = '<p style="color:#4A6741;font-size:14px;margin-top:12px;font-weight:500;">Tack! Ditt mejlprogram öppnas nu.</p>';
 }
 
-// ÖNSKELÅDA
-let wishVotes = { w1: 14, w2: 11, w3: 8 };
-
-function wishVote(btn, id) {
- if (btn.classList.contains('voted')) return;
- wishVotes[id]++;
- btn.classList.add('voted');
- btn.textContent = '✓ Röstat';
- document.getElementById(id).textContent = wishVotes[id] + ' röster';
+function submitMember() {
+  var name = document.getElementById('mem-name').value.trim();
+  var email = document.getElementById('mem-email').value.trim();
+  var role = document.getElementById('mem-role').value;
+  if (!name || !email) { alert('Fyll i namn och e-post.'); return; }
+  var link = 'mailto:sjogren.hedenstrom@gmail.com?subject=' + encodeURIComponent('Intresseanmälan — Bakom konflikten') + '&body=' + encodeURIComponent('Namn: ' + name + '\nE-post: ' + email + '\nRoll: ' + (role || 'Ej angiven'));
+  window.open(link, '_blank');
+  var form = document.getElementById('mem-form-wrap');
+  if (form) {
+    form.innerHTML = '<div style="padding:40px;text-align:center;"><div style="font-size:32px;margin-bottom:12px;">🌿</div><p style="font-size:16px;color:var(--warm);font-weight:500;">Tack ' + name + '!</p><p style="font-size:14px;color:rgba(255,255,255,0.6);margin-top:8px;">Vi hör av oss när nytt material är redo.</p></div>';
+  }
 }
 
 function submitWish() {
- const title = document.getElementById('wish-title').value.trim();
- const desc = document.getElementById('wish-desc').value.trim();
- if (!title) { alert('Ange en titel på förslaget.'); return; }
- const list = document.getElementById('wish-list');
- const item = document.createElement('div');
- item.className = 'wish-item';
- item.style.borderColor = 'var(--green)';
- item.innerHTML = `<div class="wish-item-title">${title}</div>
-  ${desc ? `<div style="font-size:13px;color:var(--mid-accent)">${desc}</div>` : ''}
-  <div class="wish-item-votes">
-   <button class="wish-vote-btn voted">✓ Ditt förslag</button>
-   <span class="wish-votes-count">1 röst</span>
-  </div>`;
- list.prepend(item);
- document.getElementById('wish-title').value = '';
- document.getElementById('wish-desc').value = '';
+  var role = document.getElementById('wish-role').value.trim();
+  var text = document.getElementById('wish-text').value.trim();
+  if (!text) { alert('Beskriv vad du vill lära dig mer om.'); return; }
+  var link = 'mailto:sjogren.hedenstrom@gmail.com?subject=' + encodeURIComponent('Förslag till kunskapslådan — Bakom konflikten') + '&body=' + encodeURIComponent('Roll: ' + (role || 'Ej angiven') + '\n\nFörslag:\n' + text);
+  window.open(link, '_blank');
+  var el = document.getElementById('wish-status');
+  el.innerHTML = '<p style="color:#4A6741;font-size:14px;margin-top:12px;font-weight:500;">🌿 Tack för ditt förslag!</p>';
+  document.getElementById('wish-text').value = '';
 }
 
-// CITAT MED AI-GRANSKNING
-async function submitCitat() {
- const role = document.getElementById('citat-role').value;
- const text = document.getElementById('citat-text').value.trim();
- const statusEl = document.getElementById('mod-status');
- if (!role || !text) { alert('Fyll i yrkesroll och erfarenhet.'); return; }
- if (text.length < 30) { alert('Berätta lite mer — minst 30 tecken.'); return; }
- const mailtoLink = 'mailto:sjogren.hedenstrom@gmail.com?subject=' + encodeURIComponent('Erfarenhet från fältet — Bakom konflikten') + '&body=' + encodeURIComponent('Yrkesroll: ' + role + '\n\nErfarenhet:\n' + text + '\n\n---\nSkickat via bakomkonflikten.se');
- window.open(mailtoLink, '_blank');
- statusEl.className = 'moderation-status show mod-ok';
- statusEl.textContent = '🌿 Tack! Vi granskar alla bidrag manuellt innan de eventuellt publiceras anonymt.';
- document.getElementById('citat-text').value = '';
- document.getElementById('citat-role').value = '';
+function submitCitat() {
+  var role = document.getElementById('citat-role').value;
+  var text = document.getElementById('citat-text').value.trim();
+  var el = document.getElementById('mod-status');
+  if (!role || !text) { alert('Fyll i yrkesroll och erfarenhet.'); return; }
+  if (text.length < 30) { alert('Berätta lite mer — minst 30 tecken.'); return; }
+  var link = 'mailto:sjogren.hedenstrom@gmail.com?subject=' + encodeURIComponent('Erfarenhet från fältet — Bakom konflikten') + '&body=' + encodeURIComponent('Yrkesroll: ' + role + '\n\nErfarenhet:\n' + text);
+  window.open(link, '_blank');
+  el.className = 'mod-status show mod-ok';
+  el.textContent = '🌿 Tack! Vi granskar alla bidrag manuellt innan de eventuellt publiceras anonymt.';
+  document.getElementById('citat-text').value = '';
 }
 
-// MEMBERSHIP
-function submitMember() {
- const name = document.getElementById('mem-name').value.trim();
- const email = document.getElementById('mem-email').value.trim();
- const role = document.getElementById('mem-role') ? document.getElementById('mem-role').value : '';
- if (!name || !email) { alert('Fyll i namn och e-post.'); return; }
- const mailtoLink = 'mailto:sjogren.hedenstrom@gmail.com?subject=' + encodeURIComponent('Intresseanmälan — Bakom konflikten') + '&body=' + encodeURIComponent('Namn: ' + name + '\nE-post: ' + email + '\nRoll: ' + role);
- window.open(mailtoLink, '_blank');
- const btn = document.querySelector('[onclick="submitMember()"]');
- const form = btn ? btn.closest('.mem-form') : null;
- if (form) {
-  form.innerHTML = '<div style="padding:32px 0;text-align:center"><div style="font-size:28px;margin-bottom:12px">🌿</div><p style="font-size:16px;color:#4A6741;font-weight:500;">Tack ' + name + '!</p><p style="font-size:14px;color:#5A4038;margin-top:8px;">Vi hör av oss när nytt material är redo.</p></div>';
- }
+/* === POLLS === */
+var pollVotes = [{}, {}];
+function vote(btn, pollIdx, optIdx) {
+  if (pollVotes[pollIdx].voted) return;
+  pollVotes[pollIdx].voted = true;
+  pollVotes[pollIdx][optIdx] = (pollVotes[pollIdx][optIdx] || 0) + 1;
+  var opts = btn.parentNode.querySelectorAll('.poll-opt');
+  opts.forEach(function(o, i) {
+    o.classList.remove('voted');
+    if (i === optIdx) o.classList.add('voted');
+    o.disabled = true;
+    var pct = Math.round(Math.random() * 40 + (i === optIdx ? 30 : 10));
+    var bar = document.createElement('div');
+    bar.className = 'poll-bar';
+    var fill = document.createElement('div');
+    fill.className = 'poll-fill';
+    fill.style.width = '0%';
+    bar.appendChild(fill);
+    o.parentNode.insertBefore(bar, o.nextSibling);
+    var cnt = document.createElement('div');
+    cnt.className = 'poll-count';
+    cnt.textContent = pct + '%';
+    bar.after(cnt);
+    setTimeout(function() { fill.style.width = pct + '%'; }, 100);
+  });
 }
 
-// KONTAKTFORMULÄR
-function sendContact() {
- const name = document.getElementById('contact-name').value.trim();
- const email = document.getElementById('contact-email').value.trim();
- const subject = document.getElementById('contact-subject') ? document.getElementById('contact-subject').value : 'Kontakt';
- const message = document.getElementById('contact-message').value.trim();
- if (!name || !email || !message) { alert('Fyll i namn, e-post och meddelande.'); return; }
- const mailtoLink = 'mailto:sjogren.hedenstrom@gmail.com?subject=' + encodeURIComponent('Bakom konflikten: ' + (subject || 'Kontakt')) + '&body=' + encodeURIComponent('Från: ' + name + '\nE-post: ' + email + '\n\n' + message);
- window.open(mailtoLink, '_blank');
- const btn = document.querySelector('[onclick="sendContact()"]');
- const parent = btn ? btn.parentNode : null;
- if (parent) {
-  const thanks = document.createElement('p');
-  thanks.textContent = 'Tack för ditt meddelande! Ditt mejlprogram öppnas nu.';
-  thanks.style.cssText = 'color:#4A6741;font-size:14px;margin-top:12px;font-weight:500;';
-  parent.appendChild(thanks);
-  btn.disabled = true;
-  btn.style.opacity = '0.5';
- }
+/* === KARTLÄGGNING APP === */
+var atmQs = [
+  {d:"Mönster och kommunikation",q:"Den andre är svår att förutsäga – ibland varm och tillgänglig, ibland kall eller frånvarande utan förklaring.",s:"Du anpassar när och hur du hör av dig. Du känner att du gjort något fel när du inte fått svar."},
+  {d:"Mönster och kommunikation",q:"Den andre bestämmer hur, när och via vilken kanal ni kommunicerar – på hens villkor.",s:"Du måste alltid vara tillgänglig medan den andre svarar när hen vill."},
+  {d:"Mönster och kommunikation",q:"Du läser av den andres humör och anpassar dig för att undvika konflikter eller dålig stämning.",s:"Du gör detta mer i den här relationen än i andra nära relationer."},
+  {d:"Frihetsbegränsning",q:"Du ändrar vad du säger, eller låter bli att säga saker, för att slippa en dålig reaktion.",s:"Du var mer fri i början av relationen. Du är rädd för att något dåligt ska hända om du säger vad du behöver."},
+  {d:"Frihetsbegränsning",q:"Du träffar vänner eller familj mer sällan, eller undviker att berätta om ditt liv för dem.",s:"Isoleringen har tilltagit sedan relationen inleddes."},
+  {d:"Frihetsbegränsning",q:"Du har litet eller inget inflytande över beslut som rör barnen eller familjen.",s:"Det är du som alltid anpassar dig – det är inte ömsesidigt."},
+  {d:"Rädsla och anpassning",q:"Du känner rädsla eller ångest inför samtal, möten eller reaktioner från den andre.",s:"Denna rädsla har ökat sedan relationen inleddes."},
+  {d:"Rädsla och anpassning",q:"Den andre framställer dig som problemet – aggressiv, kontrollerande eller överdrivet känslig.",s:"Du har börjat tvivla på din egen bild av vad som hänt."},
+  {d:"Rädsla och anpassning",q:"Du skuldbelägger dig själv och frågar dig vad du gjort för att orsaka problemen.",s:"Du var mer trygg i dig själv innan den här relationen."},
+  {d:"Eskalering över tid",q:"Konflikterna eller de negativa reaktionerna har blivit vanligare eller mer intensiva med tiden.",s:"Tröskeln för vad som utlöser en negativ reaktion har sänkts."},
+  {d:"Eskalering över tid",q:"Ditt handlingsutrymme – vad du kan säga, göra och vara – har krympt över tid.",s:"Du är mindre fri nu än för tre år sedan."},
+  {d:"Konsekvenser",q:"Du tvivlar på ditt eget minne, dina bedömningar eller din uppfattning av verkligheten.",s:"Detta var inte ett mönster för dig innan den här relationen."},
+  {d:"Konsekvenser",q:"Du har återkommande fysiska symptom som magont, huvudvärk eller sömnproblem utan medicinsk förklaring.",s:"Symptomen minskar när du har minst kontakt med den andre."},
+  {d:"Konsekvenser",q:"Barnet verkar stressat, oroligt eller har förändrat beteende som du kopplar till situationen.",s:"Barnets mående har förändrats i takt med situationen."}
+];
+var atmDims = ["Mönster och kommunikation","Frihetsbegränsning","Rädsla och anpassning","Eskalering över tid","Konsekvenser"];
+var atmOpts = ["Sällan eller aldrig","Ibland","Ofta eller alltid"];
+var atmColors = ["#4A6741","#6B8CAE","#E68CA5"];
+var atmBgs = ["#EAF3DE","#E6F1FB","#FBEAF0"];
+var atmTxts = ["#2E5A0E","#185FA5","#993556"];
+var atmTitles = ["Relationsstress","Oroande mönster","Psykologisk kontroll"];
+var atmDesc = [
+  "Ni har konflikter och det är påfrestande — men båda bidrar och ingen av er kontrollerar den andre. Det kan handla om olika kommunikationsstilar, stress eller gamla mönster från barndomen.\n\nOm båda vill finns möjlighet att förändra dynamiken — genom samtal, parterapi eller stöd från en familjerådgivare. Det är inte psykologisk kontroll, men det kan ändå vara värt att söka hjälp om det påverkar er vardag och era barn.",
+  "Du märker att du anpassar dig mer än den andre. Kanske undviker du vissa ämnen, väljer ord med omsorg eller känner lättnad när hen är på gott humör — och skuld när hen inte är det. Det är inte ömsesidigt längre.\n\nMånga som befinner sig här får rådet att kommunicera annorlunda. Det rådet utgår från att problemet är delat — men asymmetri är inte ett kommunikationsproblem. En vanlig konsekvens av att ändra sitt eget beteende är att den andre eskalerar eller skiftar till nya angreppssätt.\n\nKonkret och säkert nästa steg: Börja dokumentera konkreta situationer — datum, vad som sades, hur du och barnet reagerade. Dela inte detta med den andre.\n\nDet kan också vara värdefullt att prata med någon som förstår det du beskriver. Du behöver inte ha bestämt dig för något för att ringa — Nationella kvinnojourslinjen finns där för samtal, råd och vägledning: 020-50 55 00, kostnadsfritt, dygnet runt. Hitta din lokala jour på roks.se eller unizon.se.",
+  "Du rör dig försiktigt i din egen vardag. Du vet vilket humör hen är i innan du säger god morgon. Du ursäktar dig för saker du inte gjort. Du är trött på ett sätt som sömn inte botar.\n\nDet du upplever har ett namn. Och det är inte ditt fel.\n\nForskning visar att psykologisk kontroll kan vara farligare än det ser ut utifrån — även när inget fysiskt våld förekommit. Råd om att kommunicera bättre eller hantera situationen annorlunda är därför sällan rätt väg framåt.\n\nDet du behöver är inte fler strategier. Det du behöver är någon som ser vad som faktiskt pågår och hjälper dig att hitta din väg därifrån.\n\nEtt första steg kan vara att ringa Nationella kvinnojourslinjen — kostnadsfritt, dygnet runt, utan krav på att ha bestämt dig för något.\n\nDet kan också vara värdefullt att prata med någon som förstår det du beskriver. Du behöver inte ha bestämt dig för något för att ringa — Nationella kvinnojourslinjen finns där för samtal, råd och vägledning: 020-50 55 00, kostnadsfritt, dygnet runt. Hitta din lokala jour på roks.se eller unizon.se."
+];
+var atmNext = [
+  "Överväg samtal med en familjerådgivare om ni båda vill förändra dynamiken.",
+  "Prata med en kurator eller kontakta Nationella kvinnojourslinjen: 020-50 55 00.",
+  "Nationella kvinnojourslinjen: 020-50 55 00 — kostnadsfritt, dygnet runt."
+];
+
+var atmPhase = "intro", atmCur = 0, atmAns = new Array(atmQs.length).fill(null);
+var atmDimLvls = {}, atmOverall = 1, atmStory = "";
+
+function atmRender() {
+  var r = document.getElementById("atm-root");
+  if (!r) return;
+  if (atmPhase === "intro") r.innerHTML = atmIntro();
+  else if (atmPhase === "quiz") r.innerHTML = atmQuiz();
+  else if (atmPhase === "results") r.innerHTML = atmResults();
+  else if (atmPhase === "document") r.innerHTML = atmDocument();
+  atmBind();
 }
 
-</script>
+function atmIntro() {
+  return '<div class="atm-note">Dina svar sparas inte och registreras inte. Du kan göra om kartläggningen obegränsat antal gånger. Kartläggningen är forskningsbaserad och kontrollerad för bias. Den är inte ett diagnostiskt instrument och ersätter inte professionellt stöd.</div>' +
+    '<div class="atm-lvrow" style="border-color:#4A6741"><div class="atm-lvt">Nivå 1 – Relationsstress</div><div class="atm-lvd">Enstaka konflikter, ömsesidiga, ingen systematisk rädsla.</div></div>' +
+    '<div class="atm-lvrow" style="border-color:#6B8CAE"><div class="atm-lvt">Nivå 2 – Oroande mönster</div><div class="atm-lvd">Återkommande beteenden i minst två livsområden. Tydlig asymmetri.</div></div>' +
+    '<div class="atm-lvrow" style="border-color:#E68CA5"><div class="atm-lvt">Nivå 3 – Psykologisk kontroll</div><div class="atm-lvd">Systematiskt mönster. Frihetsbegränsning. Rädsla som grundläge.</div></div>' +
+    '<button class="atm-btn-p" id="atm-start">Starta kartläggningen</button>';
+}
 
-<script>
-// Auto-select tab based on URL hash
-window.addEventListener('load', function() {
- var hash = window.location.hash;
- if (hash === '#kartlaggning' || hash === '#haftet') {
-  showTab('utsatt');
-  setTimeout(function() {
-   var el = document.getElementById('tab-nav');
-   if (el) el.scrollIntoView({behavior: 'smooth'});
-  }, 100);
- }
+function atmQuiz() {
+  var q = atmQs[atmCur];
+  var pct = Math.round((atmCur / atmQs.length) * 100);
+  return '<div class="atm-pbar"><div class="atm-pfill" style="width:' + pct + '%"></div></div>' +
+    '<div style="font-size:11px;color:#AB9084;margin-bottom:6px">Fråga ' + (atmCur+1) + ' av ' + atmQs.length + '</div>' +
+    '<div style="font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#AB9084;margin-bottom:14px">' + q.d + '</div>' +
+    '<p style="font-size:17px;font-weight:500;color:#1E1410;line-height:1.6;margin-bottom:6px">' + q.q + '</p>' +
+    '<p style="font-size:13px;color:#E68CA5;font-style:italic;line-height:1.6;margin-bottom:20px">' + q.s + '</p>' +
+    atmOpts.map(function(o,i) { return '<button class="atm-opt' + (atmAns[atmCur]===i?' sel':'') + '" data-i="' + i + '">' + o + '</button>'; }).join('') +
+    '<div style="display:flex;justify-content:space-between;margin-top:8px">' +
+    '<button class="atm-btn-s" id="atm-back" ' + (atmCur===0?'disabled':'') + '>Tillbaka</button>' +
+    '<button class="atm-btn-p" id="atm-next" style="margin-top:0;opacity:' + (atmAns[atmCur]===null?0.4:1) + '" ' + (atmAns[atmCur]===null?'disabled':'') + '>' + (atmCur===atmQs.length-1?'Se mitt resultat':'Nästa') + '</button>' +
+    '</div>';
+}
+
+function atmResults() {
+  var lv = atmOverall - 1;
+  var cards = atmDims.map(function(d) {
+    var l = (atmDimLvls[d] || 1) - 1;
+    var pct = Math.max(l * 50, 5);
+    return '<div class="atm-dimcard"><div style="font-size:13px;font-weight:500;color:#1E1410;margin-bottom:8px">' + d + '</div>' +
+      '<div class="atm-bartrack"><div class="atm-barfill" style="width:' + pct + '%;background:' + atmColors[l] + '"></div></div>' +
+      '<div style="font-size:12px;color:#5A4038">Nivå ' + (l+1) + '<span class="atm-badge" style="background:' + atmBgs[l] + ';color:' + atmTxts[l] + '">' + atmTitles[l] + '</span></div></div>';
+  }).join('');
+  var descHtml = atmDesc[lv].split('\n\n').map(function(p) { return '<p>' + p + '</p>'; }).join('');
+  return cards +
+    '<div class="atm-rbox" style="border-left-color:' + atmColors[lv] + ';background:' + atmBgs[lv] + '">' +
+    '<div style="font-size:14px;font-weight:600;color:' + atmTxts[lv] + ';margin-bottom:12px">Nivå ' + (lv+1) + ' – ' + atmTitles[lv] + '</div>' +
+    descHtml +
+    '<div style="font-size:13px;font-weight:500;color:' + atmTxts[lv] + ';margin-top:8px">' + atmNext[lv] + '</div></div>' +
+    '<div class="atm-aibox">' +
+    '<div style="font-size:14px;font-weight:600;color:#1E1410;margin-bottom:8px">Skapa ett underlag för myndighetsmöten</div>' +
+    '<p style="font-size:13px;color:#5A4038;line-height:1.7;margin-bottom:16px">Beskriv din situation med egna ord — vad händer, hur länge det pågått och vad det gör med dig och ditt barn. Verktyget sammanfattar dina svar och din beskrivning i ett strukturerat underlag med koppling till lagstiftning och forskning, som du kan använda i samtal med socialtjänst eller familjerätt.</p>' +
+    '<textarea id="atm-story" style="width:100%;min-height:140px;padding:14px 16px;border:1px solid #C4B4A8;background:#FAF8F5;font-size:14px;color:#1E1410;line-height:1.7;resize:vertical;font-family:\'DM Sans\',sans-serif;box-sizing:border-box" placeholder="Beskriv din situation här...">' + atmStory + '</textarea>' +
+    '<div style="font-size:11px;color:#AB9084;margin:6px 0 16px">Din beskrivning och dina svar sparas inte och lämnar inte din enhet.</div>' +
+    '<button class="atm-btn-p" id="atm-gen" style="margin-top:0">Skapa underlag</button></div>' +
+    '<button class="atm-btn-s" id="atm-restart" style="margin-top:20px">Börja om</button>';
+}
+
+function atmDocument() {
+  return '<div style="background:#FFF8F0;border:1px solid #E8DDD6;border-left:4px solid #E68CA5;padding:14px 18px;margin-bottom:20px;font-size:12px;color:#5A4038;line-height:1.7">⚠️ Detta är ett samtalsstöd och ersätter inte juridisk rådgivning. Kontakta Nationella kvinnojourslinjen (020-50 55 00) eller en jurist för professionellt stöd.</div>' +
+    '<div class="atm-docbox" id="atm-doc-content"></div>' +
+    '<div style="display:flex;gap:12px;flex-wrap:wrap">' +
+    '<button class="atm-btn-p" id="atm-copy" style="margin-top:0">Kopiera text</button>' +
+    '<button class="atm-btn-s" id="atm-back-res">Tillbaka till resultat</button>' +
+    '<button class="atm-btn-s" id="atm-restart">Börja om</button></div>' +
+    '<div class="atm-crisis"><strong>Nationella kvinnojourslinjen:</strong> <a href="tel:020505500">020-50 55 00</a> — kostnadsfritt, dygnet runt.<br>' +
+    'Hitta din lokala jour: <a href="https://roks.se/hitta-jour" target="_blank">roks.se</a> eller <a href="https://unizon.se/hitta-hjalp" target="_blank">unizon.se</a><br>' +
+    '<strong>Brottsofferjouren:</strong> 116 006</div>';
+}
+
+function atmBind() {
+  function on(id, fn) { var e = document.getElementById(id); if (e) e.addEventListener('click', fn); }
+  on('atm-start', function() { atmPhase = 'quiz'; atmRender(); });
+  on('atm-back', function() { if (atmCur > 0) { atmCur--; atmRender(); } });
+  on('atm-next', function() {
+    if (atmAns[atmCur] === null) return;
+    if (atmCur === atmQs.length - 1) { atmCalc(); }
+    else { atmCur++; atmRender(); }
+  });
+  on('atm-gen', function() {
+    var ta = document.getElementById('atm-story');
+    if (!ta || !ta.value.trim()) { alert('Beskriv din situation innan du skapar underlaget.'); return; }
+    atmStory = ta.value;
+    atmGenerate();
+  });
+  on('atm-copy', function() {
+    var el = document.getElementById('atm-doc-content');
+    if (el) navigator.clipboard.writeText(el.textContent || el.innerText);
+  });
+  on('atm-back-res', function() { atmPhase = 'results'; atmRender(); });
+  on('atm-restart', function() { atmPhase = 'intro'; atmCur = 0; atmAns = new Array(atmQs.length).fill(null); atmStory = ''; atmRender(); });
+  document.querySelectorAll('.atm-opt').forEach(function(b) {
+    b.addEventListener('click', function() { atmAns[atmCur] = parseInt(b.dataset.i); atmRender(); });
+  });
+  var ta = document.getElementById('atm-story');
+  if (ta) ta.addEventListener('input', function(e) { atmStory = e.target.value; });
+}
+
+function atmCalc() {
+  var dS = {}, dC = {};
+  atmDims.forEach(function(d) { dS[d] = 0; dC[d] = 0; });
+  atmQs.forEach(function(q, i) { if (atmAns[i] !== null) { dS[q.d] += atmAns[i]; dC[q.d]++; } });
+  atmDims.forEach(function(d) {
+    var mx = dC[d] * 2;
+    var pct = mx > 0 ? Math.round((dS[d] / mx) * 100) : 0;
+    atmDimLvls[d] = pct < 34 ? 1 : pct < 67 ? 2 : 3;
+  });
+  var tot = Object.values(atmDimLvls).reduce(function(a, b) { return a + b; }, 0);
+  atmOverall = tot / atmDims.length < 1.67 ? 1 : tot / atmDims.length < 2.34 ? 2 : 3;
+  atmPhase = 'results';
+  atmRender();
+}
+
+function atmGenerate() {
+  var lv = atmOverall;
+  var date = new Date().toLocaleDateString('sv-SE');
+  var dimSummary = atmDims.map(function(d) { return d + ': Nivå ' + (atmDimLvls[d] || 1); }).join(', ');
+  var highDims = atmDims.filter(function(d) { return (atmDimLvls[d] || 1) === 3; });
+  var midDims = atmDims.filter(function(d) { return (atmDimLvls[d] || 1) === 2; });
+
+  var dimTexts = {
+    "Mönster och kommunikation": "Ett tydligt mönster av kommunikationskontroll har beskrivits — den andre styr när, hur och via vilken kanal kontakt får ske, med oförutsägbara växlingar mellan närhet och kyla.",
+    "Frihetsbegränsning": "En systematisk begränsning av handlingsutrymmet framkommer — avseende sociala kontakter, kommunikation, ekonomi och/eller beslut rörande barnen.",
+    "Rädsla och anpassning": "Personen beskriver en genomgående anpassning driven av rädsla för den andres reaktioner, inklusive självreglering och ökad vaksamhet.",
+    "Eskalering över tid": "Mönstret har tilltagit över tid — tröskeln för negativa reaktioner har sänkts och utrymmet för egna val har minskat.",
+    "Konsekvenser": "Psykologisk påverkan framkommer i form av ifrågasatt självbild, somatiska symptom och/eller påverkad förmåga att vara närvarande som förälder."
+  };
+
+  var lagstiftning = "SOCIALTJÄNSTLAGEN (2025:400)\nSocialnämnden är skyldig att inleda utredning när uppgifter framkommer om att ett barn kan ha utsatts för våld eller bevittnat våld. Utredningen ska innefatta en riskbedömning för fortsatt våld (6 kap 1§).";
+  if (lv >= 2) lagstiftning += "\n\nBARNKONVENTIONEN ARTIKEL 19\nStaten ska vidta alla lämpliga åtgärder för att skydda barnet mot alla former av fysiskt eller psykiskt våld, skada eller misshandel, vanvård eller försumlig behandling.";
+  if (lv === 3) lagstiftning += "\n\nBROTTSBALKEN 4 KAP 4A§ — OLAGA FÖRFÖLJELSE\nDen som förföljer en person genom upprepade kontakter eller liknande handlingar som syftar till att injaga allvarlig rädsla kan dömas för olaga förföljelse.\n\nPROP. 2025/26:138 — PSYKISKT VÅLD\nPsykiskt våld har kriminaliserats explicit i svensk lagstiftning. Systematisk psykologisk kontroll som begränsar en persons frihet och självbild omfattas av dessa bestämmelser.";
+
+  var forskning = "Stark (2007, 2024) visar att psykologisk kontroll är den viktigaste kontexten för allvarligt och dödligt våld — även när inget fysiskt våld tidigare förekommit. Herman (1992) beskriver hur upprepad psykisk påfrestning förändrar nervsystemet och skapar ett kroniskt tillstånd av vaksamhet. Johnson (1995, 2008) särskiljer situationell parkonflikt från kontrollerande våld — det sistnämnda kännetecknas av asymmetri, eskalering och frihetsbegränsning i många livsområden.";
+
+  var fraser = ["Jag vill beskriva ett återkommande mönster, inte enstaka händelser.", "Jag ber om att ni utreder situationen över tid, inte bara nuläget.", "Mitt barn visar tecken på stress som jag kopplar till situationen med den andre föräldern."];
+  if (lv >= 2) fraser = fraser.concat(["Jag upplever att mina möjligheter att fatta egna beslut systematiskt begränsas.", "Jag har börjat dokumentera konkreta situationer med datum och innehåll."]);
+  if (lv === 3) fraser = fraser.concat(["Jag önskar att ni beaktar risken för eskalering — forskning visar att psykologisk kontroll är den starkaste riskfaktorn för allvarligt våld (Stark, 2024).", "Jag behöver att ni ser mönstret, inte bara enstaka situationer."]);
+
+  var doc = "STRUKTURERAT UNDERLAG FÖR MYNDIGHETSMÖTEN\n";
+  doc += "Bakom konflikten · Egenkartläggning · " + date + "\n";
+  doc += "────────────────────────────────────\n\n";
+  doc += "1. KARTLÄGGNINGSRESULTAT\n";
+  doc += "Övergripande nivå: " + atmTitles[lv-1] + " (Nivå " + lv + " av 3)\n\n";
+  atmDims.forEach(function(d) { var l = atmDimLvls[d] || 1; doc += "  " + d + ": Nivå " + l + " (" + atmTitles[l-1] + ")\n"; });
+  doc += "\n2. MIN BESKRIVNING AV SITUATIONEN\n" + atmStory + "\n";
+  doc += "\n3. IDENTIFIERADE MÖNSTER\n";
+  if (highDims.length > 0) highDims.forEach(function(d) { doc += "• " + dimTexts[d] + "\n"; });
+  if (midDims.length > 0) midDims.forEach(function(d) { doc += "• " + dimTexts[d] + "\n"; });
+  if (highDims.length === 0 && midDims.length === 0) doc += "Kartläggningen visar en nivå av relationsstress utan tydliga mönster av systematisk kontroll.\n";
+  doc += "\n4. RELEVANT LAGSTIFTNING\n" + lagstiftning + "\n";
+  doc += "\n5. FORSKNINGSGRUND\n" + forskning + "\n";
+  doc += "\n6. FORMULERINGAR FÖR MYNDIGHETSMÖTEN\n";
+  fraser.forEach(function(f) { doc += "• " + f + "\n"; });
+  doc += "\n────────────────────────────────────\n";
+  doc += "Detta underlag är ett samtalsstöd och ersätter inte juridisk rådgivning.\nKontakta Nationella kvinnojourslinjen (020-50 55 00) eller en jurist för professionellt stöd.\nBakom konflikten · @bakom_konflikten · bakomkonflikten.se";
+
+  atmPhase = 'document';
+  atmRender();
+  var el = document.getElementById('atm-doc-content');
+  if (el) el.textContent = doc;
+}
+
+/* === INIT === */
+document.addEventListener('DOMContentLoaded', function() {
+  try { atmRender(); } catch(e) { console.error('ATM:', e); }
+  showTab('professional');
 });
-
-function showTab(tab) {
- const pro = document.getElementById('section-professional');
- const utsatt = document.getElementById('section-utsatt');
- const tabPro = document.getElementById('tab-pro');
- const tabUtsatt = document.getElementById('tab-utsatt');
- if (tab === 'professional') {
-  pro.style.display = 'block';
-  utsatt.style.display = 'none';
-  tabPro.style.color = '#1E1410';
-  tabPro.style.borderBottom = '3px solid #1E1410';
-  tabUtsatt.style.color = '#AB9084';
-  tabUtsatt.style.borderBottom = '3px solid transparent';
- } else {
-  pro.style.display = 'none';
-  utsatt.style.display = 'block';
-  tabPro.style.color = '#AB9084';
-  tabPro.style.borderBottom = '3px solid transparent';
-  tabUtsatt.style.color = '#1E1410';
-  tabUtsatt.style.borderBottom = '3px solid #1E1410';
- }
-}
 </script>
 </body>
 </html>
